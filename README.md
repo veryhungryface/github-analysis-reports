@@ -1,7 +1,6 @@
 # GitHub Analysis Reports
 
-레포를 단시간에 파악하기 위한 인포그래픽형 HTML 리포트 모음입니다.
+누적 GitHub 저장소 분석 보고서입니다.
 
-## Reports
-
-- [opendatalab/MinerU](reports/opendatalab-mineru.html) — 문서를 LLM/RAG/Agent용 Markdown/JSON으로 변환하는 문서 파싱 엔진
+- [nexu-io/open-design 분석 보고서](reports/nexu-io-open-design.html)
+- [MinerU 한눈에 이해하기 | GitHub Repo Infographic Report](reports/opendatalab-mineru.html)
