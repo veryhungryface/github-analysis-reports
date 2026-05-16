@@ -1,9 +1,7 @@
 # GitHub Analysis Reports
 
-GitHub 저장소 링크를 받아 분석 보고서를 `reports/*.html` 하위 페이지로 누적하는 저장소입니다.
+레포를 단시간에 파악하기 위한 인포그래픽형 HTML 리포트 모음입니다.
 
 ## Reports
 
-- [MinerU 분석 보고서](reports/opendatalab-mineru.html) — source: https://github.com/opendatalab/MinerU
-
-Generated: 2026-05-16 03:01 UTC
+- [opendatalab/MinerU](reports/opendatalab-mineru.html) — 문서를 LLM/RAG/Agent용 Markdown/JSON으로 변환하는 문서 파싱 엔진
