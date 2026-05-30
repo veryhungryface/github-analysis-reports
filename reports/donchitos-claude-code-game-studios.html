@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claude Code Game Studios 한눈에 이해하기 | GitHub Repo Infographic Report</title>
+  <meta name="description" content="Donchitos/Claude-Code-Game-Studios 저장소를 한국어 인포그래픽형 HTML 보고서로 요약한 페이지" />
+  <style>
+    :root{--bg:#070817;--panel:#11182d;--panel2:#17112d;--line:#2f3c6b;--text:#f3f7ff;--muted:#aab6d7;--cyan:#22d3ee;--pink:#f472d0;--violet:#a78bfa;--green:#34d399;--amber:#fbbf24;--red:#fb7185}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 8% 0%,rgba(34,211,238,.24),transparent 27%),radial-gradient(circle at 88% 8%,rgba(244,114,208,.22),transparent 30%),linear-gradient(180deg,#060817,#080a16 45%,#070817);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit}.wrap{max-width:1180px;margin:0 auto;padding:34px 20px 72px}.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:14px}.nav a{text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04)}
+    .hero{padding:58px 0 28px}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#c4f7ff;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08);padding:8px 12px;border-radius:999px;font-weight:800}.hero h1{font-size:clamp(36px,6.8vw,78px);line-height:.98;letter-spacing:-.06em;margin:18px 0 14px}.lead{font-size:clamp(18px,2.6vw,25px);color:#dbe8ff;max-width:920px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch;margin-top:24px}.hero-card,.score{background:linear-gradient(180deg,rgba(17,24,45,.92),rgba(10,13,29,.92));border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.28)}
+    .hero-card img{width:100%;border-radius:22px;border:1px solid rgba(255,255,255,.09);display:block;background:#0b1024}.score{display:flex;flex-direction:column;gap:14px}.verdict{font-size:29px;font-weight:950;letter-spacing:-.045em}.badge{display:inline-flex;align-items:center;gap:8px;width:max-content;border-radius:999px;padding:8px 12px;font-weight:850}.good{background:rgba(52,211,153,.13);color:#a7f3d0;border:1px solid rgba(52,211,153,.35)}.warn{background:rgba(251,191,36,.12);color:#fde68a;border:1px solid rgba(251,191,36,.35)}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:14px}.metric b{display:block;font-size:24px;letter-spacing:-.03em}.metric span{color:var(--muted);font-size:13px}.section{margin-top:34px;padding:30px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(17,24,45,.88),rgba(10,13,27,.90));border-radius:30px}.section h2{font-size:clamp(26px,4vw,42px);line-height:1.1;letter-spacing:-.045em;margin:0 0 12px}.section>p{color:var(--muted);max-width:900px;margin-top:0}.quote{font-size:22px;font-weight:900;letter-spacing:-.035em;color:#eff7ff}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.step{position:relative;background:linear-gradient(180deg,#171f3a,#0d1328);border:1px solid rgba(34,211,238,.24);border-radius:22px;padding:18px;min-height:140px}.step:not(:last-child)::after{content:'→';position:absolute;right:-13px;top:44%;color:var(--pink);font-size:24px;font-weight:900}.step .num{color:var(--cyan);font-weight:950;font-size:13px}.step b{display:block;font-size:19px;margin:8px 0}.step span{color:var(--muted);font-size:14px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}.card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:15px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.pill{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);padding:7px 10px;border-radius:999px;color:#e3ecff;font-size:13px}.adopt{border-left:4px solid var(--green)}.risk{border-left:4px solid var(--amber)}.no{border-left:4px solid var(--red)}.small{font-size:13px;color:var(--muted)}.mini-table{display:grid;gap:8px}.row{display:grid;grid-template-columns:170px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}.row b{color:#f3f7ff}.row span{color:var(--muted)}.footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:860px){.hero-grid,.two,.flow{grid-template-columns:1fr}.step:not(:last-child)::after{display:none}.metrics{grid-template-columns:1fr}.section{padding:22px}.row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><a href="../index.html">← 전체 보고서</a><span>분석일: 2026-05-30 · 대상: Donchitos/Claude-Code-Game-Studios</span></nav>
+    <header class="hero">
+      <span class="eyebrow">GitHub Repo Infographic Report</span>
+      <h1>Claude Code Game Studios<br/>AI 게임 개발팀 운영 템플릿</h1>
+      <p class="lead"><b>Claude Code Game Studios</b>는 한 명의 Claude Code 세션을 49개 전문 에이전트, 73개 워크플로우 스킬, 훅·규칙·템플릿으로 구성된 “게임 개발 스튜디오”처럼 쓰게 해주는 Claude Code용 템플릿입니다.</p>
+      <div class="hero-grid">
+        <div class="hero-card"><img src="../assets/donchitos-claude-code-game-studios-infographic.png" alt="Claude Code Game Studios 한국어 인포그래픽" /></div>
+        <aside class="score">
+          <span class="badge good">추천 대상: 인디 게임/AI 협업 구조화</span>
+          <div class="verdict">“게임을 만들고 싶은데 AI 작업을 팀처럼 나누고 싶은 사람”에게 강함</div>
+          <p class="small">코드 라이브러리라기보다 Claude Code 프로젝트에 복사해 쓰는 운영 체계입니다. 기획, 디자인, 구현, QA, 릴리스까지 역할과 절차를 강하게 잡아줍니다.</p>
+          <div class="metrics">
+            <div class="metric"><b>20.4k</b><span>Stars</span></div>
+            <div class="metric"><b>2,965</b><span>Forks</span></div>
+            <div class="metric"><b>MIT</b><span>License</span></div>
+            <div class="metric"><b>v1.0.0</b><span>Latest release 확인</span></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>한 줄로 말하면</h2>
+      <p class="quote">“Claude Code 안에 디렉터·리드·전문가·QA·릴리스 담당이 있는 가상 게임 스튜디오 운영 규칙을 설치하는 템플릿”입니다.</p>
+      <div class="flow">
+        <div class="step"><div class="num">INPUT</div><b>아이디어/기획</b><span>막연한 콘셉트부터 기존 프로젝트까지 시작점 감지</span></div>
+        <div class="step"><div class="num">TEAM</div><b>역할별 에이전트</b><span>디렉터, 리드, 엔진/디자인/QA 전문가로 분업</span></div>
+        <div class="step"><div class="num">WORKFLOW</div><b>슬래시 커맨드</b><span>설계, 스토리, 개발, 리뷰, QA, 릴리스 흐름 제공</span></div>
+        <div class="step"><div class="num">RESULT</div><b>구조화된 제작</b><span>사용자가 결정권을 유지하면서 산출물 품질 게이트 강화</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>무엇을 도와주나</h2>
+      <div class="cards">
+        <div class="card"><h3>AI 협업을 역할 기반으로 분해</h3><p>한 명의 범용 챗봇이 아니라 creative director, technical director, producer, 각 분야 specialist로 나눠 생각하게 합니다.</p></div>
+        <div class="card"><h3>게임 제작 단계별 명령 제공</h3><p>/start, /brainstorm, /design-system, /create-stories, /dev-story, /qa-plan, /launch-checklist 등 단계별 워크플로우가 있습니다.</p></div>
+        <div class="card"><h3>Godot·Unity·Unreal 대응</h3><p>세 주요 엔진에 대한 specialist와 엔진 레퍼런스 문서를 포함해 프로젝트 선택에 맞춰 활용할 수 있습니다.</p></div>
+        <div class="card"><h3>품질 게이트 자동화</h3><p>커밋, 푸시, 에셋 변경, 세션 시작/종료 등에서 훅이 실행되어 위험 작업과 누락을 줄입니다.</p></div>
+        <div class="card"><h3>사용자 승인 중심</h3><p>README가 강조하듯 자동 조종이 아니라 질문 → 옵션 → 결정 → 초안 → 승인 구조로 사용자의 결정을 남겨둡니다.</p></div>
+        <div class="card"><h3>커스터마이징 전제</h3><p>템플릿이므로 에이전트, 스킬, 규칙, 리뷰 강도, 엔진 구성을 프로젝트에 맞게 바꿔 쓰는 방식입니다.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>이 레포의 성격: “코드보다 운영체계”</h2>
+      <div class="two">
+        <div class="card adopt"><h3>강점</h3><p>문서, 역할 정의, 프로세스, 체크리스트가 많아 AI로 게임 프로젝트를 장기 운영할 때 흐트러짐을 줄이는 데 초점이 있습니다.</p></div>
+        <div class="card risk"><h3>주의점</h3><p>게임 엔진 플러그인이나 완성된 게임 프레임워크가 아닙니다. Claude Code 사용 방식, 팀 역할, 산출물 관리 규칙을 받아들이는 비용이 있습니다.</p></div>
+      </div>
+      <div class="pillrow"><span class="pill">49 agents</span><span class="pill">73 skills</span><span class="pill">12 hooks</span><span class="pill">11 rules</span><span class="pill">Godot / Unity / Unreal</span><span class="pill">Markdown-heavy template</span></div>
+    </section>
+
+    <section class="section">
+      <h2>도입 판단</h2>
+      <div class="cards">
+        <div class="card adopt"><h3>바로 써볼 만한 경우</h3><p>인디 게임을 Claude Code와 함께 만들며 기획서, 스토리, 구현, QA, 릴리스 흐름을 체계화하고 싶은 경우.</p></div>
+        <div class="card risk"><h3>먼저 검증할 것</h3><p>내 프로젝트에서 너무 무거운 프로세스가 되지 않는지, 필요한 에이전트/스킬만 남겨도 품질이 유지되는지 작은 기능 하나로 실험하세요.</p></div>
+        <div class="card no"><h3>맞지 않을 수 있는 경우</h3><p>단순 코드 생성이나 빠른 프로토타입만 원한다면 49개 역할 체계가 과할 수 있습니다. 이 경우 일부 스킬만 추려 쓰는 편이 낫습니다.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>성숙도 신호</h2>
+      <div class="mini-table">
+        <div class="row"><b>저장소</b><span><a href="https://github.com/Donchitos/Claude-Code-Game-Studios">github.com/Donchitos/Claude-Code-Game-Studios</a></span></div>
+        <div class="row"><b>설명</b><span>Turn Claude Code into a full game dev studio — 49 AI agents, 73 workflow skills, coordination system mirroring real studio hierarchy.</span></div>
+        <div class="row"><b>공개/업데이트</b><span>2026-02-12 생성 · 2026-05-30 기준 최근 업데이트</span></div>
+        <div class="row"><b>릴리스</b><span>v0.1.0부터 v1.0.0까지 공개 릴리스 5건 확인</span></div>
+        <div class="row"><b>이슈</b><span>GitHub API 기준 open issues 25건</span></div>
+        <div class="row"><b>코드/문서 규모</b><span>pygount 기준 414 files. Markdown 391개 중심이며, Bash/YAML/JSON은 훅·설정·검증용으로 보입니다.</span></div>
+        <div class="row"><b>라이선스</b><span>MIT License</span></div>
+      </div>
+      <p class="small">수집 근거: GitHub API, README/CLAUDE.md, .claude 구조, settings.json, pygount 요약. 상세 코드 리뷰가 아니라 빠른 도입 판단용 요약입니다.</p>
+    </section>
+
+    <section class="section">
+      <h2>추천 다음 액션</h2>
+      <div class="cards">
+        <div class="card"><h3>1. 새 샘플 프로젝트에 적용</h3><p>기존 프로젝트에 바로 덮기보다 별도 브랜치/샘플에서 /start와 /setup-engine 흐름을 확인합니다.</p></div>
+        <div class="card"><h3>2. 필요한 역할만 남기기</h3><p>프로젝트 규모에 맞게 에이전트·스킬·리뷰 강도를 줄여 과한 프로세스를 방지합니다.</p></div>
+        <div class="card"><h3>3. 실제 기능 1개로 검증</h3><p>기획 → 스토리 → 구현 → QA → 완료 체크까지 한 루프를 돌려 실사용성을 판단합니다.</p></div>
+      </div>
+    </section>
+
+    <footer class="footer">Generated by Hermes Agent · 누적 보고서: github-analysis-reports</footer>
+  </div>
+</body>
+</html>
