@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browser Use Box(bux) 한눈에 이해하기 | GitHub Repo Infographic Report</title>
+  <meta name="description" content="browser-use/bux 저장소를 한국어 인포그래픽형 HTML 보고서로 요약한 페이지" />
+  <style>
+    :root{--bg:#070b16;--panel:#0e1628;--panel2:#111b31;--line:#253858;--text:#eef6ff;--muted:#a8b6d6;--cyan:#22d3ee;--violet:#a78bfa;--green:#34d399;--amber:#fbbf24;--red:#fb7185}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 12% 0%,rgba(34,211,238,.22),transparent 26%),radial-gradient(circle at 88% 8%,rgba(167,139,250,.20),transparent 30%),linear-gradient(180deg,#07101f,#060914 46%,#080b12);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit}.wrap{max-width:1180px;margin:0 auto;padding:34px 20px 72px}.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:14px}.nav a{text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.03)}
+    .hero{padding:58px 0 28px}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#b7f3ff;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08);padding:8px 12px;border-radius:999px;font-weight:700}.hero h1{font-size:clamp(38px,7vw,82px);line-height:.98;letter-spacing:-.06em;margin:18px 0 14px}.lead{font-size:clamp(18px,2.6vw,25px);color:#d9e7ff;max-width:880px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch;margin-top:24px}.hero-card,.score{background:linear-gradient(180deg,rgba(17,27,49,.9),rgba(10,16,31,.9));border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 22px 70px rgba(0,0,0,.25)}
+    .hero-card img{width:100%;border-radius:22px;border:1px solid rgba(255,255,255,.08);display:block;background:#0b1222}.score{display:flex;flex-direction:column;gap:14px}.verdict{font-size:30px;font-weight:900;letter-spacing:-.04em}.badge{display:inline-flex;align-items:center;gap:8px;width:max-content;border-radius:999px;padding:8px 12px;font-weight:800}.good{background:rgba(52,211,153,.13);color:#a7f3d0;border:1px solid rgba(52,211,153,.35)}.warn{background:rgba(251,191,36,.12);color:#fde68a;border:1px solid rgba(251,191,36,.35)}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:14px}.metric b{display:block;font-size:24px;letter-spacing:-.03em}.metric span{color:var(--muted);font-size:13px}.section{margin-top:34px;padding:30px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,22,40,.88),rgba(10,15,27,.88));border-radius:30px}.section h2{font-size:clamp(26px,4vw,42px);line-height:1.1;letter-spacing:-.045em;margin:0 0 12px}.section>p{color:var(--muted);max-width:860px;margin-top:0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}.card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:15px}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.step{position:relative;background:linear-gradient(180deg,#142139,#0d1629);border:1px solid rgba(34,211,238,.22);border-radius:22px;padding:18px;min-height:135px}.step:not(:last-child)::after{content:'→';position:absolute;right:-13px;top:44%;color:var(--cyan);font-size:24px;font-weight:900}.step .num{color:var(--cyan);font-weight:900;font-size:13px}.step b{display:block;font-size:19px;margin:8px 0}.step span{color:var(--muted);font-size:14px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.pill{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);padding:7px 10px;border-radius:999px;color:#dce8ff;font-size:13px}.quote{font-size:22px;font-weight:850;letter-spacing:-.035em;color:#e8f9ff}.adopt{border-left:4px solid var(--green)}.risk{border-left:4px solid var(--amber)}.no{border-left:4px solid var(--red)}.small{font-size:13px;color:var(--muted)}.footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#d7e7ff}.mini-table{display:grid;gap:8px}.row{display:grid;grid-template-columns:170px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}.row b{color:#eef6ff}.row span{color:var(--muted)}
+    @media(max-width:860px){.hero-grid,.two,.flow{grid-template-columns:1fr}.step:not(:last-child)::after{display:none}.metrics{grid-template-columns:1fr}.section{padding:22px}.row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><a href="../index.html">← 전체 보고서</a><span>분석일: 2026-05-30 · 대상: browser-use/bux</span></nav>
+    <header class="hero">
+      <span class="eyebrow">GitHub Repo Infographic Report</span>
+      <h1>Browser Use Box(bux)<br/>내 서버에 두는 24/7 브라우저 AI 작업자</h1>
+      <p class="lead"><b>bux</b>는 저렴한 Ubuntu 서버에 Claude Code, 실제 Chromium 세션, Browser Use Cloud, Telegram 봇을 묶어 “문자로 지시하면 브라우저 작업을 처리하는 상시 에이전트”를 빠르게 띄우는 프로젝트입니다.</p>
+      <div class="hero-grid">
+        <div class="hero-card"><img src="../assets/browser-use-bux-infographic.png" alt="Browser Use Box bux 한국어 인포그래픽" /></div>
+        <aside class="score">
+          <span class="badge good">추천 대상: 실험·파일럿</span>
+          <div class="verdict">“브라우저 자동화 에이전트를 직접 운영해보고 싶은 팀”에게 유용</div>
+          <p class="small">특히 Telegram 중심 운영, 반복 웹 확인, 로그인 상태가 필요한 브라우저 작업, 원격 서버에 개인 작업자를 상주시켜야 하는 경우에 적합합니다.</p>
+          <div class="metrics">
+            <div class="metric"><b>351</b><span>Stars</span></div>
+            <div class="metric"><b>44</b><span>Forks</span></div>
+            <div class="metric"><b>MIT</b><span>License</span></div>
+            <div class="metric"><b>2026.04</b><span>Created</span></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>한 줄로 말하면</h2>
+      <p class="quote">“$5 VPS 한 대를 Claude Code + 실제 브라우저 + Telegram 원격 조작이 가능한 개인 자동화 박스로 바꿔주는 설치형 패키지”입니다.</p>
+      <div class="flow">
+        <div class="step"><div class="num">INPUT</div><b>Telegram/웹 지시</b><span>밖에서도 자연어로 브라우저 작업 요청</span></div>
+        <div class="step"><div class="num">AGENT</div><b>Claude Code 실행</b><span>서버의 /home/bux 상태와 세션을 이어받아 작업</span></div>
+        <div class="step"><div class="num">BROWSER</div><b>실제 Chromium</b><span>Browser Use Cloud CDP 세션으로 로그인/쿠키 유지</span></div>
+        <div class="step"><div class="num">OUTPUT</div><b>결과·라이브 확인</b><span>CAPTCHA/2FA는 라이브 뷰로 사람이 개입</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>무엇을 도와주나</h2>
+      <div class="cards">
+        <div class="card"><h3>원격 브라우저 작업자</h3><p>서버에 켜진 브라우저를 Claude가 사용하므로 노트북을 열지 않아도 반복 웹 작업을 시킬 수 있습니다.</p></div>
+        <div class="card"><h3>로그인 상태 유지</h3><p>상태가 /home/bux에 남아 재부팅 이후에도 쿠키·대화·작업 맥락을 이어가는 구조입니다.</p></div>
+        <div class="card"><h3>Telegram 운영 채널</h3><p>첫 채팅 바인딩 후 메시지를 큐에 넣고 lane별 세션으로 처리하는 봇 흐름을 제공합니다.</p></div>
+        <div class="card"><h3>사람 개입이 필요한 순간</h3><p>2FA, CAPTCHA, 로그인 벽은 라이브 뷰 URL을 열어 사람이 처리하도록 설계되어 있습니다.</p></div>
+        <div class="card"><h3>빠른 설치</h3><p>install.sh가 Node/Claude Code/ttyd/browser-harness/systemd 서비스를 한 번에 구성합니다.</p></div>
+        <div class="card"><h3>관리형 상품의 오픈소스 기반</h3><p>직접 운영형과 Browser Use Cloud 관리형 파일럿/상용 흐름을 함께 겨냥합니다.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>구성은 단순하지만 “운영형”입니다</h2>
+      <div class="two">
+        <div class="card adopt"><h3>핵심 서비스</h3><p>README 기준 systemd 아래 browser-keeper, Telegram bot, ttyd가 돌아가고, Claude Code가 브라우저 하네스를 통해 실제 브라우저 세션을 사용합니다.</p></div>
+        <div class="card risk"><h3>운영 책임</h3><p>API 키, Claude 로그인, 서버 권한, Telegram 토큰, 장기 실행 서비스, 로그 점검은 사용자가 직접 관리해야 합니다.</p></div>
+      </div>
+      <div class="pillrow">
+        <span class="pill">Python 중심</span><span class="pill">Ubuntu/Debian 22.04+</span><span class="pill">Browser Use Cloud API 필요</span><span class="pill">Claude Code 로그인 필요</span><span class="pill">Telegram Bot 선택</span><span class="pill">systemd 상시 실행</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>도입 판단</h2>
+      <div class="cards">
+        <div class="card adopt"><h3>바로 실험해볼 만한 경우</h3><p>개인/소규모 팀이 Telegram에서 웹 확인, 리서치, 이메일/관리 페이지 확인 같은 반복 작업을 자연어로 시키고 싶을 때.</p></div>
+        <div class="card risk"><h3>먼저 검증할 것</h3><p>내 업무 사이트에서 로그인 유지·CAPTCHA·2FA·권한 범위·브라우저 사용량·API 비용이 실제로 감당 가능한지 샘플 작업으로 확인해야 합니다.</p></div>
+        <div class="card no"><h3>주의가 필요한 경우</h3><p>민감 계정/금융/고위험 운영을 바로 맡기거나, 루트 설치 스크립트와 외부 클라우드 브라우저 의존성을 검토하지 않고 도입하는 것은 피하는 편이 좋습니다.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>성숙도 신호</h2>
+      <div class="mini-table">
+        <div class="row"><b>저장소</b><span><a href="https://github.com/browser-use/bux">github.com/browser-use/bux</a></span></div>
+        <div class="row"><b>설명</b><span>Browser Use Box: Browser Use Cloud, Telegram, 실제 브라우저를 사용하는 24/7 Claude Code 브라우저 자동화 에이전트</span></div>
+        <div class="row"><b>공개 시점</b><span>2026-04-26 생성 · 2026-05-30 기준 최근 업데이트</span></div>
+        <div class="row"><b>릴리스</b><span>box-demo-2026-05-14 공개 데모 릴리스 1건 확인</span></div>
+        <div class="row"><b>코드 규모</b><span>pygount 기준 60 files / 약 19,311 code lines. Python 11 files가 핵심이며 Telegram bot 파일이 큰 비중을 차지합니다.</span></div>
+        <div class="row"><b>라이선스</b><span>MIT License</span></div>
+      </div>
+      <p class="small">수집 근거: GitHub API, README/install.md, pygount 요약, 저장소 파일 구조. 상세 코드 리뷰가 아니라 빠른 도입 판단용 요약입니다.</p>
+    </section>
+
+    <section class="section">
+      <h2>추천 다음 액션</h2>
+      <div class="cards">
+        <div class="card"><h3>1. 샘플 업무 1개 선정</h3><p>예: 로그인 필요한 웹페이지 확인 → 요약 → Telegram 보고.</p></div>
+        <div class="card"><h3>2. 새 VPS에서 격리 실험</h3><p>주요 계정이 아닌 테스트 계정과 최소 권한 API 키로 먼저 검증합니다.</p></div>
+        <div class="card"><h3>3. 실패 지점 기록</h3><p>로그인 벽, CAPTCHA, 세션 만료, 비용, 속도, Telegram 응답 품질을 체크합니다.</p></div>
+      </div>
+    </section>
+
+    <footer class="footer">Generated by Hermes Agent · 누적 보고서: github-analysis-reports</footer>
+  </div>
+</body>
+</html>
