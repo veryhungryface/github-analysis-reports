@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ultraworkers/claw-code 분석 보고서</title>
+<style>
+:root { --bg:#07111f; --panel:#0d1d31; --panel2:#102844; --line:#1fe0ff; --green:#52f66c; --text:#f4fbff; --muted:#a9bfd1; --warn:#ffd166; --pink:#ff6b9a; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',Roboto,sans-serif; background:radial-gradient(circle at 20% 0%,#133862 0,#07111f 38%,#030814 100%); color:var(--text); line-height:1.6; }
+a { color:#7ee7ff; }
+.wrap { max-width:1180px; margin:0 auto; padding:28px 18px 72px; }
+.hero { border:1px solid rgba(31,224,255,.32); background:linear-gradient(135deg,rgba(13,29,49,.88),rgba(5,12,24,.78)); border-radius:28px; padding:28px; box-shadow:0 25px 80px rgba(0,0,0,.35); overflow:hidden; }
+.eyebrow { color:var(--green); font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+h1 { font-size:clamp(34px,6vw,74px); line-height:1.02; margin:8px 0 14px; letter-spacing:-.05em; }
+.lead { font-size:clamp(17px,2vw,24px); color:#d8efff; max-width:980px; margin:0 0 20px; }
+.topgrid { display:grid; grid-template-columns:1.35fr .65fr; gap:20px; align-items:stretch; }
+.infographic { width:100%; border-radius:22px; border:1px solid rgba(126,231,255,.3); display:block; background:#020712; }
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.stat { background:rgba(16,40,68,.75); border:1px solid rgba(31,224,255,.18); border-radius:20px; padding:18px; }
+.stat b { display:block; font-size:28px; color:#fff; }
+.stat span { color:var(--muted); font-size:13px; }
+.section { margin-top:26px; background:rgba(9,22,39,.82); border:1px solid rgba(126,231,255,.18); border-radius:28px; padding:28px; }
+.section h2 { font-size:clamp(25px,3vw,42px); margin:0 0 14px; letter-spacing:-.04em; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.card { background:linear-gradient(180deg,rgba(16,40,68,.92),rgba(8,19,33,.92)); border:1px solid rgba(31,224,255,.18); border-radius:22px; padding:22px; min-height:150px; }
+.card h3 { margin:0 0 8px; font-size:22px; }
+.card p, li { color:#c5d7e5; }
+.badge { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border-radius:999px; background:rgba(82,246,108,.1); border:1px solid rgba(82,246,108,.35); color:#c9ffd1; font-weight:700; font-size:13px; }
+.flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+.step { position:relative; background:#0e263f; border:1px solid rgba(31,224,255,.25); border-radius:20px; padding:18px; }
+.step strong { display:block; font-size:20px; margin-bottom:4px; }
+.step:not(:last-child)::after { content:'→'; position:absolute; right:-13px; top:40%; color:var(--line); font-size:28px; font-weight:900; z-index:2; }
+.verdict { border-left:5px solid var(--green); background:rgba(82,246,108,.08); padding:18px 20px; border-radius:18px; }
+.warn { border-left-color:var(--warn); background:rgba(255,209,102,.08); }
+.table { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.kv { display:flex; justify-content:space-between; gap:14px; padding:12px 0; border-bottom:1px dashed rgba(255,255,255,.14); }
+.kv span:first-child { color:var(--muted); }
+.footer { margin-top:24px; color:var(--muted); font-size:14px; text-align:center; }
+@media (max-width:860px) { .topgrid,.cards,.flow,.table { grid-template-columns:1fr; } .step:not(:last-child)::after { display:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">GitHub Repository Infographic Report</div>
+    <h1>Claw Code는 “CLI 에이전트 실행기”입니다</h1>
+    <p class="lead"><b>한 줄 결론:</b> Rust로 만든 고속 CLI 에이전트 하네스로, 프롬프트 실행·도구 호출·권한 제어·세션 재개·MCP/플러그인·JSON 자동화 출력을 한 흐름으로 묶습니다.</p>
+    <div class="topgrid">
+      <img class="infographic" src="../assets/ultraworkers-claw-code-infographic.png" alt="Claw Code 한국어 인포그래픽" />
+      <div class="stats">
+        <div class="stat"><b>192,972</b><span>Stars</span></div>
+        <div class="stat"><b>109,975</b><span>Forks</span></div>
+        <div class="stat"><b>1,386</b><span>Open issues</span></div>
+        <div class="stat"><b>Rust</b><span>Primary language</span></div>
+        <div class="stat"><b>89840</b><span>Code lines by pygount</span></div>
+        <div class="stat"><b>375</b><span>Files counted</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="badge">누구에게 유용한가</span>
+    <h2>터미널에서 AI 코딩 에이전트를 직접 실행·검증·자동화하려는 팀</h2>
+    <div class="verdict">
+      <b>도입 판단:</b> “완성형 SaaS”보다는 <b>소스 빌드형 에이전트 런타임/하네스</b>에 가깝습니다. Rust CLI, 권한 정책, 세션/도구/플러그인 표면을 직접 만져보고 싶은 개발팀·에이전트 워크플로 실험팀에게 적합합니다.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>문제 → 해결 흐름</h2>
+    <div class="flow">
+      <div class="step"><strong>1. 사용자 지시</strong><span>자연어 프롬프트, REPL 명령, 스크립트 입력</span></div>
+      <div class="step"><strong>2. Claw CLI</strong><span>모델 라우팅, 프롬프트 해석, 도구 선택</span></div>
+      <div class="step"><strong>3. 실행 제어</strong><span>파일/셸/검색 도구, 권한·세션·MCP 관리</span></div>
+      <div class="step"><strong>4. 결과</strong><span>검증, 요약, JSON 출력, 자동화 연동</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>핵심 가치 6가지</h2>
+    <div class="cards">
+      <div class="card"><h3>빠른 Rust CLI</h3><p>기본 실행 표면은 <code>rust/</code> 워크스페이스의 <code>claw</code> 바이너리입니다. 로컬 빌드 후 REPL 또는 원샷 프롬프트로 사용할 수 있습니다.</p></div>
+      <div class="card"><h3>권한 중심 실행</h3><p><code>read-only</code>, <code>workspace-write</code>, <code>danger-full-access</code> 등 권한 모드로 파일/셸 작업 범위를 통제합니다.</p></div>
+      <div class="card"><h3>세션 재개</h3><p>작업 맥락과 사용량/상태를 유지해 긴 작업을 이어갈 수 있으며, <code>--resume</code> 계열 흐름을 제공합니다.</p></div>
+      <div class="card"><h3>도구 표면</h3><p>Bash, 파일 읽기/쓰기/수정, grep/glob, WebFetch/WebSearch, Todo, Agent, NotebookEdit, Skill 등 에이전트 작업용 도구가 포함됩니다.</p></div>
+      <div class="card"><h3>MCP·플러그인</h3><p>MCP 서버 수명주기, 플러그인 설치/활성화/비활성화, hook 표면을 실험할 수 있습니다.</p></div>
+      <div class="card"><h3>자동화 친화 JSON</h3><p>doctor/status/init 등 주요 명령에 JSON 출력이 있어 CI, 스크립트, 외부 오케스트레이터와 연결하기 쉽습니다.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>저장소 신호</h2>
+    <div class="table">
+      <div>
+        <div class="kv"><span>Repository</span><b><a href="https://github.com/ultraworkers/claw-code">ultraworkers/claw-code</a></b></div>
+        <div class="kv"><span>Description</span><b>The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.</b></div>
+        <div class="kv"><span>Created / Updated</span><b>2026-03-31 / 2026-05-31</b></div>
+        <div class="kv"><span>License</span><b>MIT License</b></div>
+      </div>
+      <div>
+        <div class="kv"><span>Default branch</span><b>main</b></div>
+        <div class="kv"><span>Analyzed commit</span><b>4d3dc5b</b></div>
+        <div class="kv"><span>Top contributors</span><b>Yeachan-Heo, code-yeongyu, TheArchitectit</b></div>
+        <div class="kv"><span>Releases</span><b>0개 확인됨</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>먼저 확인할 것</h2>
+    <div class="cards">
+      <div class="card"><h3>설치 방식</h3><p>README가 명시하듯 이 저장소는 <b>build-from-source</b> 중심입니다. <code>cargo install claw-code</code>는 잘못된 deprecated stub이라고 경고합니다.</p></div>
+      <div class="card"><h3>인증/모델</h3><p>Anthropic API key 또는 bearer token, OpenAI-compatible provider 라우팅을 환경변수와 모델 prefix로 검증해야 합니다.</p></div>
+      <div class="card"><h3>성숙도 리스크</h3><p>별·포크가 매우 많지만 이슈도 많고 릴리스가 비어 있습니다. 실제 도입 전 <code>claw doctor</code>, mock parity harness, 자체 샘플 작업 검증이 필요합니다.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>실전 도입 결론</h2>
+    <div class="verdict warn">
+      <b>추천:</b> AI 코딩 에이전트 런타임을 제품/교육/내부 자동화에 붙이려는 팀은 “테스트 저장소 1개 + 읽기 전용 분석 + workspace-write 수정 + JSON 결과 수집” 순서로 PoC를 해볼 만합니다. 단, 즉시 운영 투입보다는 자체 권한 정책·로그·비밀정보 보호·CI 검증을 먼저 확정하는 것이 안전합니다.
+    </div>
+  </section>
+
+  <div class="footer">분석일: 2026-05-31 · 데이터 출처: GitHub API, 저장소 README/USAGE/rust README/PARITY, pygount summary</div>
+</div>
+</body>
+</html>
