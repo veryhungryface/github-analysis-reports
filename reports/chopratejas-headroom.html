@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Headroom 저장소 분석 — chopratejas/headroom</title>
+<style>
+:root { --bg:#071018; --panel:#0d1b25; --panel2:#111f2c; --ink:#eef8ff; --muted:#9fb4c4; --cyan:#2fd8ff; --lime:#c7f52c; --amber:#ffce3d; --line:rgba(255,255,255,.12); }
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 20% 0%,#123044 0,#071018 34%,#03080d 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,"Noto Sans KR",Arial,sans-serif;line-height:1.55}
+a{color:var(--cyan)} .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 72px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;margin-bottom:24px}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(47,216,255,.38);border-radius:999px;padding:8px 12px;color:#b8ecff;background:rgba(47,216,255,.08);font-weight:700;font-size:14px}
+h1{font-size:clamp(34px,5vw,64px);line-height:1.04;margin:18px 0 14px;letter-spacing:-.05em}
+.lead{font-size:clamp(18px,2.2vw,24px);color:#d5e7f2;margin:0 0 22px}
+.verdict{border:1px solid rgba(199,245,44,.45);background:linear-gradient(135deg,rgba(199,245,44,.16),rgba(47,216,255,.06));border-radius:24px;padding:22px}
+.verdict b{color:var(--lime)} .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.metric{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:18px;padding:16px}
+.metric .n{font-size:30px;font-weight:900;color:var(--lime)} .metric .l{color:var(--muted);font-size:13px}
+.infographic{width:100%;border-radius:26px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 70px rgba(0,0,0,.45);display:block;margin:20px 0 34px;background:#000}
+.section{margin:28px 0;padding:28px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg,rgba(17,31,44,.86),rgba(10,22,31,.86));box-shadow:0 18px 50px rgba(0,0,0,.22)}
+.section h2{font-size:clamp(26px,3.6vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.04em} .sub{color:var(--muted);font-size:18px;margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} .grid.two{grid-template-columns:repeat(2,1fr)} .grid.four{grid-template-columns:repeat(4,1fr)}
+.card{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:22px;padding:20px;min-height:130px}
+.card h3{margin:0 0 8px;font-size:20px;color:#f8fbff} .card p{margin:0;color:#c8d7e1} .pill{display:inline-block;border-radius:999px;background:rgba(47,216,255,.12);border:1px solid rgba(47,216,255,.25);padding:5px 10px;color:#c8f5ff;font-size:13px;font-weight:800;margin-bottom:12px}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center} .node{padding:18px;border:1px solid rgba(47,216,255,.35);background:rgba(47,216,255,.07);border-radius:20px;text-align:center;font-weight:850} .arrow{color:var(--lime);font-size:30px;font-weight:900}
+.quote{font-size:22px;padding:22px;border-left:6px solid var(--lime);background:rgba(199,245,44,.08);border-radius:18px;color:#ecffd0}
+.small{font-size:14px;color:var(--muted)} .table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px} .table th,.table td{padding:14px;border-bottom:1px solid var(--line);text-align:left} .table th{color:#bcefff;background:rgba(47,216,255,.08)}
+.footer{margin-top:28px;color:var(--muted);font-size:14px}
+@media(max-width:880px){.hero,.grid,.grid.two,.grid.four{grid-template-columns:1fr}.meta{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <span class="badge">GitHub 저장소 인포그래픽 리포트</span>
+      <h1>Headroom은 LLM 앞단의<br/>컨텍스트 압축 계층입니다.</h1>
+      <p class="lead">도구 출력, 로그, RAG 조각, 파일, 대화 기록을 LLM에 보내기 전에 줄여 토큰 비용과 컨텍스트 부담을 낮추는 라이브러리·프록시·MCP 도구입니다.</p>
+      <div class="meta">
+        <div class="metric"><div class="n">9,569</div><div class="l">Stars</div></div>
+        <div class="metric"><div class="n">632</div><div class="l">Forks</div></div>
+        <div class="metric"><div class="n">246K</div><div class="l">코드 라인(대략)</div></div>
+        <div class="metric"><div class="n">v0.22.4</div><div class="l">최신 릴리스</div></div>
+      </div>
+    </div>
+    <div class="verdict">
+      <span class="pill">한 줄 판단</span>
+      <p><b>AI 코딩 에이전트·RAG·도구 호출이 많은 앱</b>은 샘플 로그로 압축률과 답변 품질을 먼저 검증해볼 만합니다.</p>
+      <p class="small">단, 이미 특정 제공자의 네이티브 compaction만으로 충분하거나 로컬 프로세스 실행이 제한된 환경이라면 우선순위는 낮습니다.</p>
+    </div>
+  </div>
+
+  <img class="infographic" src="../assets/chopratejas-headroom-infographic.png" alt="Headroom 저장소 한국어 인포그래픽" />
+
+  <section class="section">
+    <h2>무엇을 도와주나?</h2>
+    <p class="sub">LLM이 보기 전에 긴 컨텍스트를 줄이고, 필요한 원문은 다시 찾을 수 있게 보관합니다.</p>
+    <div class="flow"><div class="node">도구 출력<br/>로그 · RAG · 파일</div><div class="arrow">→</div><div class="node">Headroom<br/>라우팅 · 압축 · 캐시</div><div class="arrow">→</div><div class="node">컴팩트 프롬프트<br/>+ 검색 도구</div><div class="arrow">→</div><div class="node">낮은 비용<br/>비슷한 답변 품질</div></div>
+  </section>
+
+  <section class="section"><h2>핵심 사용 방식</h2><p class="sub">README 기준으로 코드 삽입형부터 무코드 프록시, 에이전트 래핑, MCP 서버까지 여러 진입점이 있습니다.</p><div class="grid four">
+      <div class="card"><span class="pill">Library</span><h3>앱 내부 압축</h3><p>Python/TypeScript에서 메시지를 직접 압축하는 방식.</p></div>
+      <div class="card"><span class="pill">Proxy</span><h3>요청 흐름 사이 배치</h3><p>OpenAI 호환 흐름 앞단에 프록시를 두고 입력을 줄임.</p></div>
+      <div class="card"><span class="pill">Agent wrap</span><h3>코딩 에이전트 감싸기</h3><p>Claude/Codex/Cursor/Aider류 런타임을 감싸 압축 자동화.</p></div>
+      <div class="card"><span class="pill">MCP</span><h3>도구로 노출</h3><p>compress/retrieve/stats를 MCP 클라이언트에서 호출.</p></div>
+    </div></section>
+
+  <section class="section"><h2>왜 눈에 띄나?</h2><div class="grid">
+      <div class="card"><h3>60–95% 토큰 절감 주장</h3><p>README는 실제 에이전트 워크로드에서 큰 폭의 토큰 절감을 제시합니다.</p></div>
+      <div class="card"><h3>가역 압축(CCR)</h3><p>원문을 지우지 않고 보관해 LLM이 필요할 때 다시 검색하는 구조를 강조합니다.</p></div>
+      <div class="card"><h3>로컬 우선</h3><p>컨텍스트 저장·압축 계층을 로컬에서 운영하는 방향을 내세웁니다.</p></div>
+      <div class="card"><h3>멀티 언어/런타임</h3><p>Python 중심이지만 Rust 프록시와 TypeScript SDK/문서 앱도 함께 보입니다.</p></div>
+      <div class="card"><h3>채택 신호</h3><p>Stars 9,569, Forks 632, Apache-2.0 라이선스로 공개되어 있습니다.</p></div>
+      <div class="card"><h3>릴리스 활동</h3><p>최신 릴리스는 v0.22.4 (2026-06-01)로 확인됩니다.</p></div>
+    </div></section>
+
+  <section class="section"><h2>저장소 구성 신호</h2><p class="sub">세부 파일 트리보다 의사결정에 필요한 성숙도/범위 신호만 요약했습니다.</p><table class="table">
+      <tr><th>항목</th><th>확인 내용</th></tr>
+      <tr><td>주요 언어</td><td>Python 160,593 LOC, Rust 33,725 LOC, TypeScript 7,633 LOC 수준</td></tr>
+      <tr><td>패키징</td><td>PyPI 패키지명 <b>headroom-ai</b>, Python 3.10+, maturin 기반 Rust 확장 포함</td></tr>
+      <tr><td>문서/예제</td><td>README, docs, examples, benchmarks, e2e, 문서 앱 흔적 확인</td></tr>
+      <tr><td>품질 장치</td><td>CI, release-please, codecov, Rust/pytest/e2e 관련 워크플로가 존재</td></tr>
+      <tr><td>라이선스</td><td>Apache License 2.0</td></tr>
+      <tr><td>기여 집중도</td><td>상위 기여자: chopratejas(932), JerrettDavis(250), gglucass(66), adryanev(34), Kayzo(14)</td></tr>
+    </table></section>
+
+  <section class="section"><h2>도입 전 체크리스트</h2><div class="grid two">
+      <div class="card"><h3>먼저 해볼 것</h3><p>실제 로그·툴 출력·RAG 조각을 넣어 압축 후 답변 품질과 retrieval 필요 빈도를 측정하세요.</p></div>
+      <div class="card"><h3>주의할 것</h3><p>로컬 프로세스, 저장소, 프록시 설정이 조직 보안 정책과 맞는지 확인해야 합니다.</p></div>
+      <div class="card"><h3>잘 맞는 팀</h3><p>코딩 에이전트를 매일 쓰거나, 도구 출력이 길어 컨텍스트 비용이 커지는 팀.</p></div>
+      <div class="card"><h3>덜 맞는 팀</h3><p>짧은 단발 프롬프트 위주이거나, 외부 래퍼/프록시 운영 여력이 없는 팀.</p></div>
+    </div><p class="quote">결론: “토큰 절약 도구”라기보다, 에이전트 워크플로 앞단에 두는 <b>컨텍스트 운영 계층</b>으로 보는 것이 적절합니다.</p></section>
+
+  <div class="footer"><p>분석 대상: <a href="https://github.com/chopratejas/headroom">chopratejas/headroom</a> · 홈페이지: <a href="https://headroom-docs.vercel.app/docs">https://headroom-docs.vercel.app/docs</a></p><p>생성 시각: 2026-06-03 23:33 UTC. 공개 README/GitHub API/로컬 코드 스캔 기준이며, 세부 벤치마크 수치는 원 저장소 문서 기준으로 별도 재현 검증이 필요합니다.</p></div>
+</div></body></html>
