@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocLang 저장소 분석 — doclang-project/doclang</title>
+  <meta name="description" content="DocLang는 문서의 구조·의미·레이아웃·좌표를 LLM 친화적 XML 마크업으로 보존하는 AI 문서 형식 표준과 검증기입니다." />
+  <style>
+    :root{--bg:#07111f;--panel:#0f1b2e;--card:#101d32;--ink:#eef6ff;--muted:#a8bad3;--line:rgba(255,255,255,.12);--blue:#60a5fa;--teal:#2dd4bf;--violet:#a78bfa;--lime:#bef264;--white:#fff;--shadow:0 24px 80px rgba(0,0,0,.35)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:radial-gradient(circle at 10% 0%,rgba(96,165,250,.25),transparent 34%),radial-gradient(circle at 90% 10%,rgba(167,139,250,.22),transparent 30%),linear-gradient(180deg,#07111f,#0b1220 46%,#09131f);color:var(--ink);line-height:1.6}.report-nav{position:sticky;top:0;z-index:50;background:rgba(7,17,31,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.report-nav-inner{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}.report-list-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;text-decoration:none;font-weight:800;border-radius:999px;padding:10px 14px}.nav-meta{color:var(--muted);font-size:13px}.wrap{max-width:1180px;margin:0 auto;padding:42px 20px 80px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;margin-bottom:34px}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#dbeafe;background:rgba(96,165,250,.13);border:1px solid rgba(96,165,250,.3);border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}.hero h1{font-size:clamp(40px,7vw,82px);line-height:.95;letter-spacing:-.06em;margin:18px 0 18px}.lead{font-size:clamp(19px,2.5vw,26px);color:#dbeafe;margin:0 0 24px;font-weight:700}.hero-card{background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));border:1px solid var(--line);border-radius:34px;padding:24px;box-shadow:var(--shadow)}.hero-card img{display:block;width:100%;border-radius:22px;border:1px solid rgba(255,255,255,.16);background:#fff}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.q{padding:16px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid var(--line)}.q strong{display:block;font-size:24px;line-height:1;color:#fff}.q span{font-size:13px;color:var(--muted)}.section{margin-top:28px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:34px;padding:30px;box-shadow:0 18px 60px rgba(0,0,0,.18)}.section h2{margin:0 0 12px;font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-.04em}.section p{color:#d6e2f3;font-size:18px;margin:0}.grid{display:grid;gap:16px}.grid.three{grid-template-columns:repeat(3,1fr)}.grid.two{grid-template-columns:repeat(2,1fr)}.card{background:rgba(15,27,46,.82);border:1px solid var(--line);border-radius:26px;padding:22px}.card h3{margin:0 0 10px;font-size:22px}.card p,.card li{color:#c7d6ea}.card ul{margin:0;padding-left:18px}.tag{display:inline-flex;margin-bottom:12px;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900}.tag.blue{background:rgba(96,165,250,.15);color:#bfdbfe}.tag.teal{background:rgba(45,212,191,.14);color:#99f6e4}.tag.violet{background:rgba(167,139,250,.16);color:#ddd6fe}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.step{position:relative;min-height:170px;padding:22px;border-radius:26px;background:#0f1b2e;border:1px solid var(--line)}.step:not(:last-child):after{content:"→";position:absolute;right:-19px;top:58px;color:var(--teal);font-size:30px;font-weight:900}.num{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--violet));font-weight:900;margin-bottom:14px}.slide{display:grid;grid-template-columns:.42fr .58fr;gap:24px;align-items:center}.big{font-size:56px;font-weight:950;line-height:.95;letter-spacing:-.06em;color:#fff}.callout{border-left:5px solid var(--teal);padding:18px 20px;background:rgba(45,212,191,.08);border-radius:18px;color:#dffbf7}.mini-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.metric{background:rgba(255,255,255,.08);border:1px solid var(--line);padding:12px 14px;border-radius:16px;color:#dbeafe;font-weight:800}.verdict{display:grid;grid-template-columns:1fr 1fr;gap:16px}.ok{border-color:rgba(45,212,191,.32)}.warn{border-color:rgba(251,191,36,.35)}.footer{color:var(--muted);font-size:14px;margin-top:28px;text-align:center}@media(max-width:900px){.hero,.slide,.verdict{grid-template-columns:1fr}.quick,.grid.three,.grid.two,.flow{grid-template-columns:1fr}.step:after{display:none}.hero h1{font-size:46px}}
+  </style>
+</head>
+<body>
+  <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><div class="nav-meta">doclang-project/doclang · 2026-06-10 분석</div></div></nav>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">GitHub Repo Infographic Report</span>
+        <h1>DocLang는<br>AI가 읽기 좋은<br>문서 표준입니다</h1>
+        <p class="lead">문서의 구조·의미·레이아웃·좌표를 하나의 명확한 XML 표현으로 보존해 LLM/VLM 파이프라인에서 쓰기 쉽게 만드는 저장소입니다.</p>
+        <div class="quick">
+          <div class="q"><strong>146★</strong><span>GitHub stars</span></div><div class="q"><strong>v0.6.0</strong><span>최근 릴리스</span></div><div class="q"><strong>3.8k</strong><span>코드 라인</span></div><div class="q"><strong>Apache-2.0</strong><span>라이선스</span></div>
+        </div>
+      </div>
+      <aside class="hero-card"><img src="../assets/doclang-project-doclang-infographic.png" alt="DocLang 저장소 한국어 인포그래픽" /></aside>
+    </section>
+
+    <section class="section slide">
+      <div class="big">무엇을<br>도와주나?</div>
+      <div><p class="callout">PDF·Word·HTML·이미지 같은 실제 문서에서 잃기 쉬운 <b>구조, 의미, 위치, 레이아웃</b>을 LLM 친화적인 마크업으로 남기는 데 초점을 둡니다.</p><div class="mini-metrics"><span class="metric">표준 명세: spec.md</span><span class="metric">검증기: Python 패키지</span><span class="metric">CLI: doclang validate</span></div></div>
+    </section>
+
+    <section class="section">
+      <h2>기본 흐름</h2><p>개발자가 이 저장소를 활용하는 방식은 단순합니다.</p>
+      <div class="flow">
+        <div class="step"><div class="num">1</div><h3>문서 준비</h3><p>PDF, OCR 결과, 문서 추출 결과를 입력으로 둡니다.</p></div>
+        <div class="step"><div class="num">2</div><h3>DocLang 표현</h3><p>문서 구성요소를 XML 기반 태그와 속성으로 정리합니다.</p></div>
+        <div class="step"><div class="num">3</div><h3>검증</h3><p>XSD와 Schematron으로 구조와 규칙 위반을 확인합니다.</p></div>
+        <div class="step"><div class="num">4</div><h3>AI 활용</h3><p>LLM/VLM, RAG, 데이터셋 구축에 안정적으로 투입합니다.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>왜 별도 형식이 필요한가</h2>
+      <div class="grid three">
+        <article class="card"><span class="tag blue">문제</span><h3>렌더링 중심 형식의 손실</h3><p>기존 PDF/HTML/Word 변환 과정에서는 문서가 어떻게 보이는지는 남아도, 구조·의미·관계가 흐려질 수 있습니다.</p></article>
+        <article class="card"><span class="tag teal">해결</span><h3>토큰 친화적 통제 어휘</h3><p>DocLang는 제한된 태그와 명확한 규칙을 지향해 LLM이 생성·소비하기 쉬운 표현을 목표로 합니다.</p></article>
+        <article class="card"><span class="tag violet">확장</span><h3>복잡한 문서 요소까지</h3><p>표, 수식, 코드, 목록, 차트, 양식, 좌표 같은 실무 문서 요소를 다룹니다.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>저장소 구성의 의미</h2>
+      <div class="grid three">
+        <article class="card"><h3>표준 명세</h3><ul><li><code>spec.md</code>가 핵심 규격 문서</li><li><code>exports/</code>에 PDF/DOCX 등 내보낸 문서</li></ul></article>
+        <article class="card"><h3>레퍼런스 검증기</h3><ul><li><code>doclang/</code>에 CLI·Python API</li><li>XSD 구조 검증 + Schematron 규칙 검증</li></ul></article>
+        <article class="card"><h3>샘플과 테스트</h3><ul><li><code>examples/</code>와 <code>tests/data/</code> 중심</li><li>다양한 문서 조각을 회귀 테스트로 확인</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>채택 판단</h2>
+      <div class="verdict">
+        <article class="card ok"><span class="tag teal">추천</span><h3>이런 팀은 바로 살펴볼 만함</h3><p>문서 AI 파이프라인, OCR/문서추출, LLM용 구조화 데이터셋, RAG 전처리 표준을 고민하는 팀.</p></article>
+        <article class="card warn"><span class="tag violet">확인 필요</span><h3>도입 전 먼저 검증할 것</h3><p>자체 문서 샘플을 DocLang로 표현했을 때 필요한 의미·좌표·표 구조가 충분히 보존되는지 확인해야 합니다.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>작은 기술 메모</h2>
+      <div class="grid two">
+        <article class="card"><h3>패키지/런타임</h3><p>Python 3.10 이상, <code>lxml</code>, <code>saxonche</code>, <code>typer</code> 기반의 <code>doclang validate</code> CLI를 제공합니다.</p></article>
+        <article class="card"><h3>성숙도 신호</h3><p>최근 v0.6.0 릴리스에서 <code>&lt;picture&gt;</code>와 차트 테이블 관련 변경이 있었고, 명세와 검증기가 함께 업데이트되고 있습니다.</p></article>
+      </div>
+    </section>
+    <p class="footer">원본 저장소: <a style="color:#bfdbfe" href="https://github.com/doclang-project/doclang">https://github.com/doclang-project/doclang</a> · 분석 기준: README/spec/pyproject/CHANGELOG/GitHub metadata</p>
+  </main>
+</body>
+</html>
