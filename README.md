@@ -8,6 +8,7 @@
 
 - [Browser Use Box(bux) 한눈에 이해하기 | GitHub Repo Infographic Report](reports/browser-use-bux.html)
 - [Headroom 저장소 분석 — chopratejas/headroom](reports/chopratejas-headroom.html)
+- [DietrichGebert/ponytail 분석 보고서](reports/dietrichgebert-ponytail.html)
 - [diffusionstudio/lottie 분석 보고서](reports/diffusionstudio-lottie.html)
 - [DocLang 저장소 분석 — doclang-project/doclang](reports/doclang-project-doclang.html)
 - [Claude Code Game Studios 한눈에 이해하기 | GitHub Repo Infographic Report](reports/donchitos-claude-code-game-studios.html)

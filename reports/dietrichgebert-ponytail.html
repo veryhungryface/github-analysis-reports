@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DietrichGebert/ponytail 분석 보고서</title>
+<meta name="description" content="DietrichGebert/ponytail GitHub 저장소를 한국어 인포그래픽형 HTML 보고서로 요약한 페이지" />
+<style>
+:root{--bg:#080a12;--panel:#111827;--panel2:#172033;--text:#f8fbff;--muted:#aeb9cc;--line:#28354d;--accent:#f59e0b;--accent2:#22d3ee;--good:#34d399;--warn:#fbbf24;--pink:#fb7185}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 12% -8%,rgba(245,158,11,.34),transparent 34%),radial-gradient(circle at 100% 10%,rgba(34,211,238,.22),transparent 34%),linear-gradient(180deg,#080a12,#0e1526 52%,#080a12);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6} a{color:#67e8f9} code{background:#0b1220;border:1px solid var(--line);padding:.15em .4em;border-radius:8px;color:#fde68a} .wrap{max-width:1180px;margin:0 auto;padding:34px 22px 84px}
+.report-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,10,18,.84);border-bottom:1px solid rgba(255,255,255,.12)}.report-nav-inner{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center}.report-list-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#111827;background:#fde68a;border:1px solid rgba(253,230,138,.72);border-radius:999px;padding:9px 14px;font-weight:900;box-shadow:0 10px 28px rgba(245,158,11,.16)}.report-list-btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.hero{display:grid;grid-template-columns:1.03fr .97fr;gap:24px;align-items:center;min-height:82vh}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 13px;color:#fde68a;background:rgba(245,158,11,.12);font-size:14px;font-weight:800}h1{font-size:clamp(42px,7vw,82px);line-height:.95;margin:22px 0 18px;letter-spacing:-.06em}h2{font-size:clamp(30px,4vw,50px);line-height:1.05;margin:0 0 18px;letter-spacing:-.04em}h3{font-size:21px;margin:0 0 8px}.lead{font-size:22px;color:#e3e9f8;max-width:790px}.shot{background:linear-gradient(145deg,rgba(245,158,11,.24),rgba(34,211,238,.13));border:1px solid var(--line);border-radius:30px;padding:14px;box-shadow:0 30px 90px rgba(0,0,0,.38)}.shot img{width:100%;display:block;border-radius:22px;background:#fff}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.metric,.card{background:rgba(17,24,39,.82);border:1px solid var(--line);border-radius:22px;padding:18px;backdrop-filter:blur(10px)}.metric b{display:block;font-size:28px;letter-spacing:-.04em}.metric span,.muted{color:var(--muted)}.slide{margin:34px 0;padding:38px;border:1px solid var(--line);border-radius:34px;background:linear-gradient(180deg,rgba(17,24,39,.86),rgba(8,10,18,.74));box-shadow:0 24px 80px rgba(0,0,0,.25)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.step{position:relative;background:#0d1527;border:1px solid var(--line);border-radius:22px;padding:16px}.num{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:900;margin-bottom:10px}.verdict{background:linear-gradient(135deg,rgba(52,211,153,.20),rgba(34,211,238,.08));border:1px solid rgba(52,211,153,.45);border-radius:26px;padding:24px}.verdict.warn{background:linear-gradient(135deg,rgba(251,191,36,.18),rgba(251,113,133,.08));border-color:rgba(251,191,36,.42)}.tag{display:inline-block;margin:5px 6px 0 0;padding:6px 10px;border-radius:999px;background:#1f2a44;color:#cbd5e1;font-size:13px}footer{color:#9aa7bd;border-top:1px solid var(--line);padding-top:26px;margin-top:30px}@media(max-width:1050px){.flow{grid-template-columns:repeat(3,1fr)}}@media(max-width:900px){.hero,.grid2{grid-template-columns:1fr}.metrics,.benefits,.grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.metrics,.flow,.benefits,.grid{grid-template-columns:1fr}.slide{padding:24px}}
+</style>
+</head>
+<body>
+<nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a></div></nav>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <span class="eyebrow">GitHub Repository Infographic Report · DietrichGebert/ponytail</span>
+    <h1>Ponytail<br/>한눈에 보기</h1>
+    <p class="lead">AI 코딩 에이전트가 과설계 대신 “필요 없으면 생략, 표준 기능 먼저, 마지막에만 최소 구현”을 선택하게 만드는 규칙·스킬·플러그인 모음입니다.</p>
+    <div class="metrics">
+      <div class="metric"><b>★ 16,394</b><span>Stars</span></div>
+      <div class="metric"><b>682</b><span>Forks</span></div>
+      <div class="metric"><b>v4.6.0</b><span>Latest release</span></div>
+      <div class="metric"><b>JavaScript</b><span>Primary</span></div>
+    </div>
+  </div>
+  <div class="shot"><img src="../assets/dietrichgebert-ponytail-infographic.png" alt="DietrichGebert/ponytail 한국어 인포그래픽" /></div>
+</section>
+
+<section class="slide">
+  <h2>이 레포는 무엇을 도와주나?</h2>
+  <div class="grid2">
+    <div class="card"><h3>문제</h3><p class="muted">AI 에이전트는 간단한 요구에도 새 의존성, 래퍼, 추상화, 보일러플레이트를 만들기 쉽습니다.</p></div>
+    <div class="card"><h3>해결</h3><p class="muted">Ponytail은 에이전트에게 YAGNI → 표준 라이브러리 → 플랫폼 기능 → 기존 의존성 → 한 줄 → 최소 구현 순서로 멈춰 생각하게 합니다.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>결정 사다리: 먼저 덜 만든다</h2>
+  <div class="flow">
+    <div class="step"><div class="num">1</div><h3>생략</h3><p class="muted">정말 필요한 기능인지 먼저 확인</p></div>
+    <div class="step"><div class="num">2</div><h3>Stdlib</h3><p class="muted">언어 표준 기능이 있으면 사용</p></div>
+    <div class="step"><div class="num">3</div><h3>Native</h3><p class="muted">브라우저·OS·DB 기본 기능 우선</p></div>
+    <div class="step"><div class="num">4</div><h3>재사용</h3><p class="muted">이미 설치된 의존성만 활용</p></div>
+    <div class="step"><div class="num">5</div><h3>한 줄</h3><p class="muted">가능하면 짧고 명확하게</p></div>
+    <div class="step"><div class="num">6</div><h3>최소 구현</h3><p class="muted">그다음에만 필요한 만큼 작성</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>누구에게 유용한가</h2>
+  <div class="benefits">
+    <div class="card"><h3>AI 코딩 사용자</h3><p class="muted">에이전트가 불필요한 코드를 늘리는 문제를 줄이고 싶을 때</p></div>
+    <div class="card"><h3>리뷰어</h3><p class="muted">현재 diff에서 무엇을 삭제할 수 있는지 빠르게 보고 싶을 때</p></div>
+    <div class="card"><h3>팀 리드</h3><p class="muted">새 의존성·추상화·미래 대비 코드를 줄이는 팀 규칙이 필요할 때</p></div>
+    <div class="card"><h3>에이전트 도구 제작자</h3><p class="muted">여러 에이전트/에디터에 같은 행동 규칙을 배포하고 싶을 때</p></div>
+    <div class="card"><h3>벤치마크 관심자</h3><p class="muted">코드량·비용·응답시간 감소 실험을 재현하고 싶을 때</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>핵심 기능</h2>
+  <div class="grid">
+    <div class="card"><h3>항상 켜지는 규칙</h3><p class="muted"><code>AGENTS.md</code>와 각 호스트 어댑터가 에이전트에게 최소 구현 원칙을 주입합니다.</p></div>
+    <div class="card"><h3>명령형 스킬</h3><p class="muted"><code>/ponytail</code>, <code>/ponytail-review</code>, <code>/ponytail-audit</code>, <code>/ponytail-debt</code>로 모드 전환·과설계 리뷰·부채 추적을 제공합니다.</p></div>
+    <div class="card"><h3>넓은 이식성</h3><p class="muted">Claude Code, Codex, OpenCode, pi, Gemini CLI, Cursor, Windsurf, Cline, Copilot, Kiro 등 다양한 호스트용 어댑터를 포함합니다.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>벤치마크가 말하는 것</h2>
+  <div class="grid2">
+    <div class="verdict"><h3>효과 신호</h3><p>README 기준 5개 일상 과제, 3개 모델, 10회 반복 중간값에서 baseline 대비 코드 80–94% 감소, 비용 47–77% 감소, 응답 3–6배 단축을 주장합니다.</p></div>
+    <div class="verdict warn"><h3>해석 주의</h3><p>작은 로컬 모델에는 의사결정 사다리 전이가 약하다고 문서화되어 있습니다. 실제 팀 코드베이스와 사용하는 모델에서 재현 확인이 필요합니다.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>채택 전 확인할 점</h2>
+  <div class="grid2">
+    <div class="card"><h3>시도 추천</h3><p class="muted">AI 에이전트가 “요구보다 크게” 만드는 문제가 반복되는 팀, 특히 리뷰 비용과 코드 소유 비용을 줄이고 싶은 팀에게 적합합니다.</p></div>
+    <div class="card"><h3>먼저 검증</h3><p class="muted">자주 맡기는 실제 작업 3~5개로 코드량, 정확성, 리뷰 수고, 보안/접근성 누락 여부를 비교하세요. 단순함이 품질 저하로 이어지면 모드를 낮춰야 합니다.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>기술·성숙도 신호</h2>
+  <div class="grid2">
+    <div class="card"><h3>저장소 신호</h3><p class="muted">생성일 2026-06-12, 최근 업데이트 2026-06-16, 라이선스 MIT License, Watchers 44, Open Issues 6.</p><p><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">claude</span><span class="tag">claude-code</span><span class="tag">claude-code-plugin</span><span class="tag">cursor-rules</span><span class="tag">developer-tools</span><span class="tag">llm</span><span class="tag">prompt-engineering</span><span class="tag">yagni</span></p></div>
+    <div class="card"><h3>코드 규모</h3><p class="muted">pygount 기준 83개 파일, 코드 약 1,529라인. JavaScript와 Markdown 중심의 작고 이식성 높은 스킬/플러그인 저장소입니다.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>실행 판단</h2>
+  <p class="lead">Ponytail은 “코드를 더 잘 쓰게 하는 프레임워크”보다 “코드를 덜 쓰게 만드는 에이전트 성격/규칙 배포판”에 가깝습니다.</p>
+  <p class="muted">빠른 검증 방법: 사용하는 에이전트에 설치한 뒤, 평소 과하게 구현되던 작은 작업 하나를 맡기고 결과 diff가 실제로 짧아졌는지 확인하세요.</p>
+</section>
+
+<footer>
+  <p>원본 저장소: <a href="https://github.com/DietrichGebert/ponytail">https://github.com/DietrichGebert/ponytail</a> · 분석 생성: 2026-06-16</p>
+</footer>
+</main>
+</body>
+</html>
