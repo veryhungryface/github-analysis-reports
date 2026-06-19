@@ -1,19 +1,18 @@
 # GitHub Analysis Reports
 
-누적 GitHub 저장소 분석 보고서 모음입니다.
-
-- Pages index: https://veryhungryface.github.io/github-analysis-reports/
+GitHub 저장소별 한국어 인포그래픽형 HTML 분석 리포트 모음입니다.
 
 ## Reports
 
-- [Browser Use Box(bux) 한눈에 이해하기 | GitHub Repo Infographic Report](reports/browser-use-bux.html)
-- [Headroom 저장소 분석 — chopratejas/headroom](reports/chopratejas-headroom.html)
-- [DietrichGebert/ponytail 분석 보고서](reports/dietrichgebert-ponytail.html)
-- [diffusionstudio/lottie 분석 보고서](reports/diffusionstudio-lottie.html)
-- [DocLang 저장소 분석 — doclang-project/doclang](reports/doclang-project-doclang.html)
-- [Claude Code Game Studios 한눈에 이해하기 | GitHub Repo Infographic Report](reports/donchitos-claude-code-game-studios.html)
-- [Plaud Sync for Obsidian 분석 보고서](reports/leonardsellem-plaud-sync-for-obsidian.html)
-- [nexu-io/open-design 분석 보고서](reports/nexu-io-open-design.html)
-- [MinerU 한눈에 이해하기 | GitHub Repo Infographic Report](reports/opendatalab-mineru.html)
-- [ultraworkers/claw-code 분석 보고서](reports/ultraworkers-claw-code.html)
-- [CommandCode Bridge 한눈에 이해하기 | GitHub Repo Infographic Report](reports/yelixir-dev-commandcode-bridge.html)
+- [browser-use-bux](reports/browser-use-bux.html)
+- [chopratejas-headroom](reports/chopratejas-headroom.html)
+- [dietrichgebert-ponytail](reports/dietrichgebert-ponytail.html)
+- [diffusionstudio-lottie](reports/diffusionstudio-lottie.html)
+- [doclang-project-doclang](reports/doclang-project-doclang.html)
+- [donchitos-claude-code-game-studios](reports/donchitos-claude-code-game-studios.html)
+- [leonardsellem-plaud-sync-for-obsidian](reports/leonardsellem-plaud-sync-for-obsidian.html)
+- [nexu-io-open-design](reports/nexu-io-open-design.html)
+- [opendatalab-mineru](reports/opendatalab-mineru.html)
+- [ultraworkers-claw-code](reports/ultraworkers-claw-code.html)
+- [vercel-eve](reports/vercel-eve.html)
+- [yelixir-dev-commandcode-bridge](reports/yelixir-dev-commandcode-bridge.html)

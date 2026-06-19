@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>vercel/eve 분석 리포트</title>
+<style>
+:root { --bg:#07111f; --panel:#0f1b2f; --panel2:#13243d; --text:#eef6ff; --muted:#a8b7cc; --line:rgba(255,255,255,.12); --mint:#68e1bd; --blue:#7bb7ff; --yellow:#ffd166; --red:#ff7b9c; }
+* { box-sizing:border-box; } body { margin:0; font-family: Inter, Pretendard, Apple SD Gothic Neo, Segoe UI, sans-serif; background: radial-gradient(circle at top left,#14345c 0,#07111f 40%,#050910 100%); color:var(--text); line-height:1.55; }
+a { color:inherit; } .report-nav { position:sticky; top:0; z-index:20; backdrop-filter: blur(14px); background:rgba(5,9,16,.72); border-bottom:1px solid var(--line); }
+.report-nav-inner { max-width:1180px; margin:auto; padding:12px 22px; } .report-list-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:rgba(104,225,189,.13); border:1px solid rgba(104,225,189,.45); color:#dffff5; text-decoration:none; font-weight:800; }
+.wrap { max-width:1180px; margin:0 auto; padding:28px 22px 80px; } .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; align-items:center; min-height:520px; }
+.eyebrow { color:var(--mint); font-weight:900; letter-spacing:.08em; text-transform:uppercase; } h1 { font-size:clamp(42px,7vw,86px); line-height:.95; margin:14px 0 18px; letter-spacing:-.06em; }
+.lead { font-size:22px; color:#d8e9ff; max-width:760px; } .hero-card,.card,.slide { background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035)); border:1px solid var(--line); border-radius:30px; box-shadow:0 24px 70px rgba(0,0,0,.35); }
+.hero-card { padding:18px; } .hero-card img { width:100%; display:block; border-radius:22px; border:1px solid var(--line); }
+.metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:24px; } .metric { padding:18px; border-radius:22px; background:rgba(255,255,255,.07); border:1px solid var(--line); } .metric b { display:block; font-size:28px; } .metric span { color:var(--muted); font-size:13px; }
+.section-title { margin:70px 0 18px; font-size:34px; letter-spacing:-.03em; } .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .card { padding:24px; min-height:190px; } .card h3 { margin:0 0 10px; font-size:22px; } .card p { color:var(--muted); margin:0; }
+.flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; } .step { position:relative; padding:22px; border-radius:24px; background:var(--panel2); border:1px solid var(--line); min-height:150px; } .step:not(:last-child)::after { content:'→'; position:absolute; right:-16px; top:45%; color:var(--mint); font-size:28px; font-weight:900; } .step b { display:block; font-size:20px; margin-bottom:8px; } .step span { color:var(--muted); }
+.slide { padding:34px; margin:18px 0; } .slide h2 { font-size:36px; margin:0 0 12px; letter-spacing:-.04em; } .slide p { color:#c9d8ec; font-size:18px; margin:0; } .two { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.verdict { border-left:6px solid var(--mint); padding:22px 24px; background:rgba(104,225,189,.09); border-radius:22px; } .warn { border-left-color:var(--yellow); background:rgba(255,209,102,.09); } .mini-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px; } .mini { padding:14px; border-radius:16px; background:rgba(255,255,255,.06); border:1px solid var(--line); } .mini b,.mini span { display:block; } .mini span { color:var(--muted); font-size:13px; margin-top:4px; }
+.footer { margin-top:70px; color:var(--muted); border-top:1px solid var(--line); padding-top:24px; }
+@media (max-width:900px) { .hero,.two { grid-template-columns:1fr; } .metrics,.grid,.flow,.mini-grid { grid-template-columns:1fr; } .step:not(:last-child)::after { display:none; } }
+</style>
+</head>
+<body>
+<nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a></div></nav>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">GitHub Repository Report</div>
+      <h1>eve는<br/>에이전트를<br/>폴더로 설계하게 합니다</h1>
+      <p class="lead">The Framework for Building Agents. instructions, tools, skills, channels, schedules 같은 핵심 능력을 파일시스템 구조로 드러내 운영 가능한 AI 에이전트를 만들도록 돕는 TypeScript 프레임워크입니다.</p>
+      <div class="metrics">
+        <div class="metric"><b>1,376</b><span>GitHub Stars</span></div>
+        <div class="metric"><b>82</b><span>Forks</span></div>
+        <div class="metric"><b>15</b><span>Open Issues</span></div>
+        <div class="metric"><b>eve@0.11.6</b><span>최근 릴리스</span></div>
+      </div>
+    </div>
+    <div class="hero-card"><img src="../assets/vercel-eve-infographic.png" alt="eve 저장소 요약 인포그래픽" /></div>
+  </section>
+
+  <h2 class="section-title">1. 이 레포가 해결하는 문제</h2>
+  <section class="slide"><h2>에이전트 구성이 코드 속에 숨지 않게 한다</h2><p>일반적인 에이전트 프로젝트는 프롬프트, 도구, 외부 연결, 채널, 스케줄이 흩어지기 쉽습니다. eve는 `agent/` 아래의 정해진 위치에 배치해 사람이 읽고, 에이전트가 이해하고, 런타임이 실행할 수 있는 구조로 만듭니다.</p></section>
+
+  <h2 class="section-title">2. 핵심 작동 흐름</h2>
+  <div class="flow">
+    <div class="step"><b>agent/ 작성</b><span>instructions.md, tools/, skills/, channels/ 등으로 능력 선언</span></div>
+    <div class="step"><b>경로 기반 발견</b><span>파일 경로가 도구·연결·스킬 이름과 역할을 결정</span></div>
+    <div class="step"><b>컴파일·실행</b><span>CLI/TUI와 런타임이 에이전트 표면을 조립</span></div>
+    <div class="step"><b>운영·평가</b><span>테스트, eval, 채널, 스케줄로 실제 운영 루프 구성</span></div>
+  </div>
+
+  <h2 class="section-title">3. 누구에게 유용한가</h2>
+  <div class="grid">
+    <div class="card"><h3>에이전트 제품 개발팀</h3><p>프롬프트와 도구를 배포 가능한 소프트웨어 구조로 관리하고 싶은 팀에 적합합니다.</p></div>
+    <div class="card"><h3>Vercel/TypeScript 생태계 사용자</h3><p>npm, pnpm, TypeScript, 웹 프레임워크 통합에 익숙하면 도입 장벽이 낮습니다.</p></div>
+    <div class="card"><h3>운영·평가 중심 팀</h3><p>subagents, evals, scenario tests, 채널 연동을 통해 “작동 확인”까지 묶고 싶은 경우 유용합니다.</p></div>
+  </div>
+
+  <h2 class="section-title">4. 확인된 기능 신호</h2>
+  <div class="two">
+    <section class="slide"><h2>저장소 구성</h2><p>모노레포 구조이며 핵심 패키지는 `packages/eve`, 문서는 `docs`, 실제 fixture/eval은 `e2e`와 `apps/fixtures`에 배치되어 있습니다.</p><div class="mini-grid"><div class="mini"><b>Runtime package</b><span>packages/eve</span></div><div class="mini"><b>Docs</b><span>68 docs pages</span></div><div class="mini"><b>License</b><span>Apache License 2.0</span></div></div></section>
+    <section class="slide"><h2>코드 규모</h2><p>pygount 기준 약 1,805개 파일, 164k 코드 라인으로 TypeScript 비중이 압도적입니다.</p><div class="mini-grid"><div class="mini"><b>TypeScript</b><span>1416 files · 151073 LOC</span></div><div class="mini"><b>TSX</b><span>63 files · 4965 LOC</span></div><div class="mini"><b>JavaScript</b><span>63 files · 3898 LOC</span></div><div class="mini"><b>JSON</b><span>57 files · 1270 LOC</span></div><div class="mini"><b>CSS+Lasso</b><span>5 files · 1151 LOC</span></div><div class="mini"><b>YAML</b><span>12 files · 1023 LOC</span></div></div></section>
+  </div>
+
+  <h2 class="section-title">5. 도입 판단</h2>
+  <div class="two">
+    <div class="verdict"><h3>시도해볼 만한 경우</h3><p>에이전트의 프롬프트·도구·채널·스케줄을 Git으로 관리하고, 구조가 눈에 보이는 방식으로 운영하려는 팀이라면 빠르게 PoC를 해볼 가치가 있습니다.</p></div>
+    <div class="verdict warn"><h3>먼저 확인할 점</h3><p>현재 beta 성격이 강하므로 API 안정성, 배포 환경, 모델/샌드박스 요구사항, 기존 스택과의 통합 비용을 실제 샘플 에이전트로 검증하는 것이 좋습니다.</p></div>
+  </div>
+
+  <h2 class="section-title">6. 빠른 시작 관점</h2>
+  <section class="slide"><h2>첫 검증은 “작은 도구 1개 + 평가 1개”로</h2><p>`npx eve@latest init my-agent`로 기본 에이전트를 만들고, README의 mock weather tool처럼 단일 도구를 붙인 뒤 eval 또는 TUI smoke로 동작 확인하는 흐름이 가장 현실적인 첫 검증입니다.</p></section>
+
+  <div class="footer">분석일: 2026-06-19 · 대상: <a href="https://github.com/vercel/eve">https://github.com/vercel/eve</a> · 홈페이지: <a href="https://vercel.com/eve">https://vercel.com/eve</a></div>
+</main>
+</body>
+</html>
