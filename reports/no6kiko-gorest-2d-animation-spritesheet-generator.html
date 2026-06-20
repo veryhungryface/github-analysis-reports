@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NO6KIKO/gorest-2d-animation-spritesheet-generator 분석 보고서</title>
+  <style>
+    :root {
+      --bg:#08101f; --panel:#111b2e; --panel2:#0d1628; --ink:#f4f8ff; --muted:#aab8cc;
+      --line:rgba(255,255,255,.13); --cyan:#5eead4; --pink:#fb7185; --violet:#a78bfa; --yellow:#facc15;
+      --green:#86efac; --blue:#60a5fa;
+    }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 15% 0%,rgba(94,234,212,.18),transparent 28%),radial-gradient(circle at 88% 8%,rgba(167,139,250,.20),transparent 30%),var(--bg);color:var(--ink);font-family:Inter,Pretendard,'Apple SD Gothic Neo',system-ui,sans-serif;line-height:1.55}
+    .report-nav{position:sticky;top:0;z-index:50;background:rgba(8,16,31,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .report-nav-inner{max-width:1180px;margin:auto;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .report-list-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#041018;background:linear-gradient(135deg,var(--cyan),#bae6fd);font-weight:900;padding:10px 15px;border-radius:999px;box-shadow:0 10px 30px rgba(94,234,212,.18)}
+    .nav-meta{color:var(--muted);font-size:13px}
+    main{max-width:1180px;margin:auto;padding:30px 22px 70px}
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:26px;border:1px solid var(--line);border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:0 30px 80px rgba(0,0,0,.28)}
+    .kicker{display:inline-flex;border:1px solid rgba(94,234,212,.35);background:rgba(94,234,212,.10);color:#bffef4;border-radius:999px;padding:7px 11px;font-weight:800;font-size:13px}
+    h1{font-size:clamp(34px,5vw,64px);letter-spacing:-.055em;line-height:1.02;margin:18px 0 14px}
+    .lead{font-size:20px;color:#dce8f8;margin:0 0 22px} .muted{color:var(--muted)}
+    .hero-img{width:100%;border-radius:26px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35);background:#0a1120}
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px} .chip{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-weight:800;color:#dce8f8;font-size:13px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:20px 0 0} .stat{padding:18px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid var(--line)} .stat b{display:block;font-size:27px;letter-spacing:-.04em} .stat span{font-size:13px;color:var(--muted)}
+    section{margin-top:28px;padding:28px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025))} h2{font-size:32px;letter-spacing:-.04em;margin:0 0 12px} h3{margin:0 0 8px;font-size:20px} p{margin:0 0 12px} .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{padding:20px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid var(--line)} .card strong{color:#fff} .accent{color:var(--cyan);font-weight:900} .warn{color:#fed7aa}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;margin-top:18px} .step{position:relative;padding:18px 14px;border-radius:22px;background:#0d1b31;border:1px solid rgba(94,234,212,.22);min-height:118px} .step:after{content:'→';position:absolute;right:-14px;top:42%;color:var(--cyan);font-size:25px;font-weight:900} .step:last-child:after{display:none} .step em{font-style:normal;display:block;color:var(--cyan);font-weight:900;font-size:12px;margin-bottom:8px}
+    .verdict{border-color:rgba(134,239,172,.35);background:linear-gradient(135deg,rgba(134,239,172,.13),rgba(96,165,250,.07))} .risk{border-color:rgba(251,113,133,.32);background:linear-gradient(135deg,rgba(251,113,133,.10),rgba(250,204,21,.06))}
+    .quote{font-size:22px;letter-spacing:-.025em;color:#f8fbff}
+    .mini{font-size:13px;color:var(--muted)}
+    .footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+    a{color:#9eeaff} code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:7px;color:#e0f2fe}
+    @media(max-width:900px){.hero,.grid,.grid2{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:1fr}.step:after{display:none}}
+  </style>
+</head>
+<body>
+  <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><div class="nav-meta">분석일: 2026-06-20 UTC · 정적 HTML 리포트</div></div></nav>
+  <main>
+    <header class="hero">
+      <div>
+        <span class="kicker">GitHub Repo Infographic Report</span>
+        <h1>프롬프트에서 게임용 2D 장면까지</h1>
+        <p class="lead"><strong>NO6KIKO/gorest-2d-animation-spritesheet-generator</strong>는 Codex와 로컬 브라우저 앱을 연결해 스프라이트시트 생성·장면 합성·애니메이션 미리보기를 빠르게 반복하는 초기 2D 게임 프로토타입 작업대입니다.</p>
+        <div class="chips"><span class="chip">TypeScript · React · Vite</span><span class="chip">로컬 우선 워크플로</span><span class="chip">MIT License</span><span class="chip">Build 검증 통과</span></div>
+        <div class="stats">
+          <div class="stat"><b>602</b><span>Stars</span></div><div class="stat"><b>82</b><span>Forks</span></div><div class="stat"><b>13.4k</b><span>Code LOC</span></div><div class="stat"><b>86</b><span>Generated PNGs</span></div>
+        </div>
+      </div>
+      <img class="hero-img" src="../assets/no6kiko-gorest-2d-animation-spritesheet-generator-infographic.png" alt="gorest 2D animation spritesheet generator Korean infographic" />
+    </header>
+
+    <section>
+      <h2>한 줄 판단</h2>
+      <p class="quote">“완성형 게임 엔진”보다는 <span class="accent">Codex가 조작할 수 있는 로컬 2D 장면 제작 실험실</span>에 가깝습니다.</p>
+      <div class="grid2" style="margin-top:16px">
+        <div class="card verdict"><h3>누구에게 유용한가</h3><p>사이드 스크롤러, 공포/스토리형 2D 장면, 캐릭터·소품 스프라이트시트의 빠른 시각 검수를 원하는 프로토타이퍼에게 적합합니다.</p></div>
+        <div class="card risk"><h3>먼저 확인할 점</h3><p>릴리스가 없고 생성 자산이 많이 포함된 초기형 저장소입니다. 내 샘플 이미지로 스프라이트 안정성·메타데이터 저장 흐름을 먼저 검증하는 것이 좋습니다.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>작업 흐름</h2>
+      <p class="muted">README와 코드 구조 기준으로 정리한 사용자 관점 플로우입니다.</p>
+      <div class="flow">
+        <div class="step"><em>01 Input</em><strong>프롬프트 / 참조 이미지</strong><br><span class="mini">Codex가 작업 지시를 받음</span></div>
+        <div class="step"><em>02 Sprite</em><strong>12·16프레임 시트</strong><br><span class="mini">생성 또는 가져오기</span></div>
+        <div class="step"><em>03 Composite</em><strong>장면 레이어 합성</strong><br><span class="mini">배경·캐릭터·소품 배치</span></div>
+        <div class="step"><em>04 Metadata</em><strong>트리거/상태 설정</strong><br><span class="mini">액션, 방향, 루프, 태그</span></div>
+        <div class="step"><em>05 Preview</em><strong>플레이어블 미리보기</strong><br><span class="mini">확인 후 로컬 저장</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>이 저장소가 도와주는 일</h2>
+      <div class="grid">
+        <div class="card"><h3>빠른 비주얼 반복</h3><p>장면을 열고 레이어를 조정한 뒤 애니메이션 결과를 브라우저에서 즉시 확인하는 흐름을 목표로 합니다.</p></div>
+        <div class="card"><h3>스프라이트시트 검수</h3><p>현재 장면에 연결된 캐릭터·소품·효과 스프라이트시트를 모아 보고, PNG 다운로드와 메타데이터 편집을 지원합니다.</p></div>
+        <div class="card"><h3>장면 단위 자산화</h3><p><code>public/generated/game_asset_library.json</code>에 장면과 자산을 저장해 재사용 가능한 로컬 라이브러리로 관리합니다.</p></div>
+        <div class="card"><h3>레이어 기반 합성</h3><p>배경, 플레이어, 소품, UI, 전경, 이펙트를 분리된 레이어로 두고 위치·크기·순서·표시 상태를 조정합니다.</p></div>
+        <div class="card"><h3>상호작용 모델</h3><p>Inspect, Pickup, Toggle, Door/Scene Link, Animated Prop, Conditional 같은 프리셋으로 장면 상태를 설계합니다.</p></div>
+        <div class="card"><h3>Codex 조작 표면</h3><p>Codex가 파일과 로컬 API/자산 라이브러리를 수정하고, 브라우저가 결과 확인 표면이 되는 구조를 지향합니다.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>기술·성숙도 신호</h2>
+      <div class="grid">
+        <div class="card"><h3>스택</h3><p>React 19, Vite 8, Express, TypeScript, lucide-react, motion 기반. 서버는 Vite middleware와 로컬 API를 함께 제공합니다.</p></div>
+        <div class="card"><h3>코드 규모</h3><p>pygount 기준 총 131개 파일, 코드 약 13,390라인. TSX 4,592라인과 JSON 5,025라인 비중이 큽니다.</p></div>
+        <div class="card"><h3>검증 결과</h3><p><code>npm install</code> 후 <code>npm run build</code> 실행 성공. Vite 클라이언트와 Express 서버 번들 생성까지 확인했습니다.</p></div>
+        <div class="card"><h3>자산 상태</h3><p>로컬 라이브러리 기준 자산 16개, 장면 4개, 생성 PNG 86개가 포함되어 샘플 중심으로 바로 탐색할 수 있습니다.</p></div>
+        <div class="card"><h3>라이선스/배포</h3><p>MIT 라이선스입니다. 단, GitHub Releases는 아직 없으므로 버전 안정성은 커밋 기준으로 판단해야 합니다.</p></div>
+        <div class="card"><h3>외부 API</h3><p>기본 로컬 워크플로는 키 없이 가능하다고 설명합니다. 클라우드 이미지 생성을 켜면 Gemini API 키가 필요합니다.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>도입 결론</h2>
+      <div class="grid2">
+        <div class="card verdict"><h3>바로 시도해볼 만한 경우</h3><p>“이미지 생성 → 스프라이트시트 → 장면 배치 → 플레이 확인”을 한 번에 묶어 초기 게임 장면을 빠르게 실험하려는 경우 적합합니다.</p></div>
+        <div class="card risk"><h3>주의할 경우</h3><p>상용 파이프라인 대체, 대규모 협업, 엔진별 런타임 export까지 기대한다면 아직 검증할 부분이 많습니다.</p></div>
+      </div>
+      <p class="muted" style="margin-top:16px">추천 첫 검증: 직접 만든 캐릭터/소품 샘플 1개로 16프레임 시트를 넣고, 레이어 배치·메타데이터·미리보기·저장까지 한 사이클을 확인하세요.</p>
+    </section>
+
+    <section>
+      <h2>분석 근거</h2>
+      <p class="muted">GitHub metadata, README, package manifest, 주요 소스 파일, asset library, pygount 지표, 실제 production build 실행 결과를 기준으로 작성했습니다.</p>
+      <div class="chips"><span class="chip">Repo: <a href="https://github.com/NO6KIKO/gorest-2d-animation-spritesheet-generator">GitHub 원본</a></span><span class="chip">Primary language: TypeScript</span><span class="chip">Updated: 2026-06-20T22:55:29Z</span></div>
+    </section>
+    <div class="footer">Generated by Hermes Agent · 누적 GitHub 분석 리포트</div>
+  </main>
+</body>
+</html>

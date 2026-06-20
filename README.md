@@ -2,6 +2,7 @@
 
 저장소별 한국어 인포그래픽형 분석 리포트를 누적 보관합니다.
 
+- [NO6KIKO/gorest-2d-animation-spritesheet-generator 분석 보고서](reports/no6kiko-gorest-2d-animation-spritesheet-generator.html)
 - [Browser Use Box(bux) 한눈에 이해하기 | GitHub Repo Infographic Report](reports/browser-use-bux.html)
 - [Headroom 저장소 분석 — chopratejas/headroom](reports/chopratejas-headroom.html)
 - [DietrichGebert/ponytail 분석 보고서](reports/dietrichgebert-ponytail.html)
