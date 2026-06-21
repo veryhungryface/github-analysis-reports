@@ -10,11 +10,29 @@
 *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 12% -8%,rgba(245,158,11,.34),transparent 34%),radial-gradient(circle at 100% 10%,rgba(34,211,238,.22),transparent 34%),linear-gradient(180deg,#080a12,#0e1526 52%,#080a12);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6} a{color:#67e8f9} code{background:#0b1220;border:1px solid var(--line);padding:.15em .4em;border-radius:8px;color:#fde68a} .wrap{max-width:1180px;margin:0 auto;padding:34px 22px 84px}
 .report-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,10,18,.84);border-bottom:1px solid rgba(255,255,255,.12)}.report-nav-inner{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center}.report-list-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#111827;background:#fde68a;border:1px solid rgba(253,230,138,.72);border-radius:999px;padding:9px 14px;font-weight:900;box-shadow:0 10px 28px rgba(245,158,11,.16)}.report-list-btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
 .hero{display:grid;grid-template-columns:1.03fr .97fr;gap:24px;align-items:center;min-height:82vh}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 13px;color:#fde68a;background:rgba(245,158,11,.12);font-size:14px;font-weight:800}h1{font-size:clamp(42px,7vw,82px);line-height:.95;margin:22px 0 18px;letter-spacing:-.06em}h2{font-size:clamp(30px,4vw,50px);line-height:1.05;margin:0 0 18px;letter-spacing:-.04em}h3{font-size:21px;margin:0 0 8px}.lead{font-size:22px;color:#e3e9f8;max-width:790px}.shot{background:linear-gradient(145deg,rgba(245,158,11,.24),rgba(34,211,238,.13));border:1px solid var(--line);border-radius:30px;padding:14px;box-shadow:0 30px 90px rgba(0,0,0,.38)}.shot img{width:100%;display:block;border-radius:22px;background:#fff}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.metric,.card{background:rgba(17,24,39,.82);border:1px solid var(--line);border-radius:22px;padding:18px;backdrop-filter:blur(10px)}.metric b{display:block;font-size:28px;letter-spacing:-.04em}.metric span,.muted{color:var(--muted)}.slide{margin:34px 0;padding:38px;border:1px solid var(--line);border-radius:34px;background:linear-gradient(180deg,rgba(17,24,39,.86),rgba(8,10,18,.74));box-shadow:0 24px 80px rgba(0,0,0,.25)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.step{position:relative;background:#0d1527;border:1px solid var(--line);border-radius:22px;padding:16px}.num{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:900;margin-bottom:10px}.verdict{background:linear-gradient(135deg,rgba(52,211,153,.20),rgba(34,211,238,.08));border:1px solid rgba(52,211,153,.45);border-radius:26px;padding:24px}.verdict.warn{background:linear-gradient(135deg,rgba(251,191,36,.18),rgba(251,113,133,.08));border-color:rgba(251,191,36,.42)}.tag{display:inline-block;margin:5px 6px 0 0;padding:6px 10px;border-radius:999px;background:#1f2a44;color:#cbd5e1;font-size:13px}footer{color:#9aa7bd;border-top:1px solid var(--line);padding-top:26px;margin-top:30px}@media(max-width:1050px){.flow{grid-template-columns:repeat(3,1fr)}}@media(max-width:900px){.hero,.grid2{grid-template-columns:1fr}.metrics,.benefits,.grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.metrics,.flow,.benefits,.grid{grid-template-columns:1fr}.slide{padding:24px}}
+
+/* Hermes 2026-06: make generated repo infographic prominent, not a small card thumbnail. */
+.infographic-spotlight{max-width:1240px;margin:28px auto 36px;padding:clamp(14px,2.3vw,28px);border:1px solid rgba(255,255,255,.16);border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 34px 90px rgba(0,0,0,.32)}
+.infographic-spotlight__label{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 13px;border-radius:999px;background:rgba(94,234,212,.14);border:1px solid rgba(94,234,212,.34);color:#d8fff8;font-weight:900;font-size:13px;letter-spacing:-.01em}
+.infographic-spotlight__frame{padding:clamp(8px,1.4vw,16px);border-radius:28px;background:rgba(3,8,18,.45);border:1px solid rgba(255,255,255,.13);overflow:hidden}
+.infographic-spotlight__frame img{display:block;width:100%;max-width:100%;height:auto!important;max-height:none!important;object-fit:contain;border-radius:20px;box-shadow:0 18px 55px rgba(0,0,0,.30)}
+@media(max-width:760px){.infographic-spotlight{margin:18px auto 24px;border-radius:24px}.infographic-spotlight__frame{border-radius:20px}.infographic-spotlight__frame img{border-radius:14px}}
+
+/* Hide the old small embedded infographic thumbnail after the new full-width spotlight. */
+main > .hero img[src*="infographic"],
+main > header img[src*="infographic"],
+main > section img[src*="infographic"]{display:none!important}
+.infographic-spotlight img[src*="infographic"]{display:block!important}
 </style>
 </head>
 <body>
 <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a></div></nav>
 <main class="wrap">
+<div class="infographic-spotlight" aria-label="대형 인포그래픽 보기">
+  <div class="infographic-spotlight__label">인포그래픽 크게 보기</div>
+  <div class="infographic-spotlight__frame"><img src="../assets/dietrichgebert-ponytail-infographic.png" alt="DietrichGebert/ponytail 한국어 인포그래픽" loading="eager" /></div>
+</div>
+
 <section class="hero">
   <div>
     <span class="eyebrow">GitHub Repository Infographic Report · DietrichGebert/ponytail</span>

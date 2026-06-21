@@ -38,7 +38,20 @@
     .footer{text-align:center;color:#cbd5e1;margin-top:32px;font-size:13px}
     a{color:#2563eb} code{background:#e2e8f0;padding:2px 6px;border-radius:8px}
     @media(max-width:860px){.hero,.grid,.grid.two,.verdict,.flow{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.decision{grid-template-columns:1fr}}
-  </style>
+  
+/* Hermes 2026-06: make generated repo infographic prominent, not a small card thumbnail. */
+.infographic-spotlight{max-width:1240px;margin:28px auto 36px;padding:clamp(14px,2.3vw,28px);border:1px solid rgba(255,255,255,.16);border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 34px 90px rgba(0,0,0,.32)}
+.infographic-spotlight__label{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 13px;border-radius:999px;background:rgba(94,234,212,.14);border:1px solid rgba(94,234,212,.34);color:#d8fff8;font-weight:900;font-size:13px;letter-spacing:-.01em}
+.infographic-spotlight__frame{padding:clamp(8px,1.4vw,16px);border-radius:28px;background:rgba(3,8,18,.45);border:1px solid rgba(255,255,255,.13);overflow:hidden}
+.infographic-spotlight__frame img{display:block;width:100%;max-width:100%;height:auto!important;max-height:none!important;object-fit:contain;border-radius:20px;box-shadow:0 18px 55px rgba(0,0,0,.30)}
+@media(max-width:760px){.infographic-spotlight{margin:18px auto 24px;border-radius:24px}.infographic-spotlight__frame{border-radius:20px}.infographic-spotlight__frame img{border-radius:14px}}
+
+/* Hide the old small embedded infographic thumbnail after the new full-width spotlight. */
+main > .hero img[src*="infographic"],
+main > header img[src*="infographic"],
+main > section img[src*="infographic"]{display:none!important}
+.infographic-spotlight img[src*="infographic"]{display:block!important}
+</style>
 </head>
 <body>
   <nav class="report-nav">
@@ -48,6 +61,11 @@
     </div>
   </nav>
   <main class="wrap">
+<div class="infographic-spotlight" aria-label="대형 인포그래픽 보기">
+  <div class="infographic-spotlight__label">인포그래픽 크게 보기</div>
+  <div class="infographic-spotlight__frame"><img src="../assets/leonardsellem-plaud-sync-for-obsidian-infographic.png" alt="Plaud Sync for Obsidian 한국어 인포그래픽" loading="eager" /></div>
+</div>
+
     <section class="hero">
       <div class="hero-card">
         <div class="eyebrow">GitHub 레포지토리 한눈 분석</div>
