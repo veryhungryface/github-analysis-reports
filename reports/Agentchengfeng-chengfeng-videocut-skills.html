@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agentchengfeng/chengfeng-videocut-skills 분석 보고서</title>
+<style>
+:root { --bg:#07111f; --panel:#0e1d33; --panel2:#132842; --text:#edf6ff; --muted:#a8bdd5; --accent:#ffcf7a; --accent2:#68e1fd; --good:#7cf2b4; --warn:#ff9f7a; --line:rgba(255,255,255,.12); }
+* { box-sizing:border-box; }
+body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at 20% 0%, #173a63 0, transparent 35%), linear-gradient(180deg,#07111f,#091426 46%,#060b14); color:var(--text); line-height:1.65; }
+a { color:inherit; }
+.report-nav { position:sticky; top:0; z-index:20; backdrop-filter: blur(16px); background:rgba(7,17,31,.78); border-bottom:1px solid var(--line); }
+.report-nav-inner { max-width:1180px; margin:0 auto; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.report-list-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 15px; border-radius:999px; background:rgba(255,255,255,.09); border:1px solid var(--line); text-decoration:none; font-weight:800; }
+.source-link { color:var(--muted); font-size:14px; text-decoration:none; }
+main { max-width:1180px; margin:0 auto; padding:28px 20px 70px; }
+.infographic-spotlight { padding:18px; border:1px solid rgba(255,255,255,.16); border-radius:30px; background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035)); box-shadow: 0 30px 90px rgba(0,0,0,.38); }
+.infographic-spotlight img { display:block; width:100%; max-height:none; object-fit:contain; border-radius:22px; background:#07111f; }
+.hero { padding:44px 0 18px; display:grid; grid-template-columns: 1.25fr .75fr; gap:26px; align-items:stretch; }
+.eyebrow { color:var(--accent); font-weight:900; letter-spacing:.08em; text-transform:uppercase; font-size:13px; }
+h1 { margin:10px 0 14px; font-size: clamp(34px, 5vw, 68px); line-height:1.02; letter-spacing:-.045em; }
+.lead { font-size: clamp(18px, 2.2vw, 25px); color:#d9e8f7; margin:0; }
+.hero-card, .card { border:1px solid var(--line); border-radius:26px; background:rgba(14,29,51,.78); padding:24px; box-shadow: 0 20px 50px rgba(0,0,0,.22); }
+.kpi-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:18px; }
+.kpi { padding:16px; border-radius:20px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); }
+.kpi b { display:block; font-size:26px; color:#fff; }
+.kpi span { color:var(--muted); font-size:13px; }
+.section { margin-top:30px; padding:34px; border:1px solid var(--line); border-radius:32px; background:linear-gradient(180deg,rgba(19,40,66,.86),rgba(10,22,39,.86)); }
+.section h2 { margin:0 0 12px; font-size: clamp(25px, 3vw, 42px); letter-spacing:-.03em; }
+.section p { color:#c9d9eb; margin:0; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:22px; }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:22px; }
+.benefit { padding:20px; border-radius:24px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); min-height:150px; }
+.benefit strong { display:block; font-size:20px; margin-bottom:8px; color:#fff; }
+.benefit span { color:var(--muted); }
+.flow { display:grid; grid-template-columns: repeat(5,1fr); gap:12px; margin-top:24px; align-items:stretch; }
+.step { position:relative; padding:18px; border-radius:24px; background:rgba(104,225,253,.08); border:1px solid rgba(104,225,253,.20); text-align:center; }
+.step:not(:last-child)::after { content:'→'; position:absolute; right:-12px; top:42%; color:var(--accent); font-weight:900; font-size:24px; }
+.icon { font-size:32px; display:block; margin-bottom:8px; }
+.badge { display:inline-flex; padding:8px 12px; border-radius:999px; background:rgba(124,242,180,.12); color:var(--good); border:1px solid rgba(124,242,180,.24); font-weight:800; font-size:13px; }
+.warn { background:rgba(255,159,122,.10); border-color:rgba(255,159,122,.25); }
+ul.clean { margin:14px 0 0; padding:0; list-style:none; }
+ul.clean li { margin:10px 0; padding-left:24px; position:relative; color:#cbdbee; }
+ul.clean li:before { content:'✓'; position:absolute; left:0; color:var(--good); font-weight:900; }
+.footer { color:var(--muted); margin-top:24px; font-size:13px; }
+@media (max-width: 860px) { .hero, .grid3, .grid2, .flow { grid-template-columns:1fr; } .step:not(:last-child)::after { display:none; } .section { padding:24px; } }
+</style>
+</head>
+<body>
+<nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><a class="source-link" href="https://github.com/Agentchengfeng/chengfeng-videocut-skills">원본 저장소 보기</a></div></nav>
+<main>
+  <section class="infographic-spotlight" aria-label="상단 인포그래픽">
+    <img src="../assets/Agentchengfeng-chengfeng-videocut-skills-infographic.png" alt="chengfeng-videocut-skills 저장소 핵심 흐름 인포그래픽" />
+  </section>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">GitHub Repository Infographic Report</div>
+      <h1>AI 에이전트가<br/>口播 영상 편집을<br/>따라 하게 만드는 Skill 패키지</h1>
+      <p class="lead"><b>Agentchengfeng/chengfeng-videocut-skills</b>는 말하는 영상의 전처리, 검수, 분镜, 타임라인 미리보기, 세로 영상 출력까지를 Agent가 읽을 수 있는 절차와 산출물로 정리한 저장소입니다.</p>
+    </div>
+    <aside class="hero-card">
+      <span class="badge">한 줄 판단: 실험·도입 가치 높음</span>
+      <div class="kpi-grid">
+        <div class="kpi"><b>2,187</b><span>Stars</span></div>
+        <div class="kpi"><b>315</b><span>Forks</span></div>
+        <div class="kpi"><b>JavaScript</b><span>Primary language</span></div>
+        <div class="kpi"><b>Apache</b><span>License</span></div>
+      </div>
+      <p class="footer">기준: 2026-06-24 07:53:09 KST · 기본 브랜치 main · 최근 업데이트 2026-06-23</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <h2>무엇을 도와주나?</h2>
+    <p>일반 편집툴을 대체하려는 저장소가 아니라, <b>口播/튜토리얼/제품 설명 영상</b>처럼 반복되는 편집 판단을 Agent 작업 단위로 쪼개는 데 초점이 있습니다.</p>
+    <div class="flow">
+      <div class="step"><span class="icon">🎬</span><b>원본 영상</b><br/><small>녹화·口播</small></div>
+      <div class="step"><span class="icon">〰️</span><b>오류 탐지</b><br/><small>침묵·반복·말더듬</small></div>
+      <div class="step"><span class="icon">✅</span><b>검수 페이지</b><br/><small>사람 확인</small></div>
+      <div class="step"><span class="icon">🧩</span><b>분镜·타임라인</b><br/><small>장면 설계</small></div>
+      <div class="step"><span class="icon">📱</span><b>세로 영상</b><br/><small>1080×1440</small></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>핵심 Skill 3종</h2>
+    <div class="grid3">
+      <div class="benefit"><strong>剪口播</strong><span>원본 영상을 전사하고, 말더듬·반복·침묵 후보를 검출한 뒤 검수 페이지를 통해 컷 편집용 기초 소재를 만듭니다.</span></div>
+      <div class="benefit"><strong>口播成片</strong><span>잘린 영상과 자막, 선택 소재를 바탕으로 분镜 페이지·시간선 미리보기·최종 1080×1440 MP4 흐름을 구성합니다.</span></div>
+      <div class="benefit"><strong>自进化</strong><span>사용자의 피드백과 실패 사례를 규칙으로 흡수해 다음 편집 작업에서 같은 실수를 줄이는 메타 Skill입니다.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>누구에게 유용한가?</h2>
+    <div class="grid3">
+      <div class="benefit"><strong>AI 에이전트로 영상 제작을 자동화하려는 팀</strong><span>작업 지시를 코드/문서/HTML 산출물로 남기려는 워크플로에 잘 맞습니다.</span></div>
+      <div class="benefit"><strong>口播 기반 숏폼·튜토리얼 제작자</strong><span>소스 영상, 자막, 화면 자료를 결합해 검수 가능한 중간 결과물을 만들고 싶은 경우 유용합니다.</span></div>
+      <div class="benefit"><strong>Claude Code / Codex Skill 사용자</strong><span>설치형 npm 패키지와 Skills 구조가 있어 에이전트 작업환경에 붙여 시험하기 쉽습니다.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>도입 전 확인할 점</h2>
+    <div class="grid2">
+      <div class="card"><span class="badge">강점</span><ul class="clean"><li>검수 페이지와 타임라인 미리보기 중심이라 사람이 중간 판단을 넣기 좋음</li><li>영상 편집을 “Agent가 읽고 수정 가능한 산출물 계약”으로 바꿔 둠</li><li>Apache-2.0 라이선스라 재사용·개조 여지가 큼</li></ul></div>
+      <div class="card warn"><span class="badge" style="color:var(--warn);border-color:rgba(255,159,122,.35);background:rgba(255,159,122,.12)">주의</span><ul class="clean"><li>범용 영상 편집기가 아니라 口播 영상에 특화됨</li><li>화산엔진 음성 인식 API Key와 FFmpeg/Node.js 환경이 필요함</li><li>실제 품질은 자막 정확도와 검수 루프 운영 방식에 크게 좌우됨</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>저장소 신호</h2>
+    <div class="grid3">
+      <div class="benefit"><strong>관심도</strong><span>2,187 stars, 315 forks, open issues 19개로 초기 관심도가 높은 편입니다.</span></div>
+      <div class="benefit"><strong>구성</strong><span>34개 파일 · 코드 2,353라인 · 문서/템플릿/스크립트 혼합형. README와 Skill 문서가 핵심이며, JS/Bash 스크립트가 실행을 보조합니다.</span></div>
+      <div class="benefit"><strong>배포</strong><span>npm 설치기 <code>chengfeng-videocut-skills</code>가 있으며 Node.js >=18 환경을 요구합니다.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>추천 결론</h2>
+    <p><b>바로 프로덕션 자동화에 넣기보다는, 1~2개의 실제 口播 샘플로 “검수 페이지 → 자막 재생성 → 분镜/타임라인 → 세로 영상” 루프가 원하는 품질로 도는지 검증하는 방식</b>이 적절합니다. 특히 교육·제품 설명·결과 공유형 영상처럼 구조가 반복되는 콘텐츠에서 가치가 큽니다.</p>
+    <p class="footer">이미지 검증: 1672×941 PNG, 평균 밝기 43.4, 표준편차 55.2 · 보고서 생성: 2026-06-24 07:53:09 KST</p>
+  </section>
+</main>
+</body>
+</html>
