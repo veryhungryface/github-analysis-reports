@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>google/agents-cli 분석 리포트</title>
+<style>
+:root { --bg:#06111f; --panel:#0d1b30; --panel2:#10243d; --text:#eef7ff; --muted:#a9b9ce; --line:rgba(255,255,255,.14); --mint:#78f0c7; --blue:#82bdff; --yellow:#ffd66e; --pink:#ff8bad; --green:#7cf7a4; }
+* { box-sizing:border-box; } body { margin:0; font-family:Inter, Pretendard, Apple SD Gothic Neo, Segoe UI, sans-serif; background:radial-gradient(circle at 10% 0%,#16375f 0,#06111f 35%,#030712 100%); color:var(--text); line-height:1.55; }
+a { color:inherit; } .report-nav { position:sticky; top:0; z-index:20; backdrop-filter:blur(14px); background:rgba(3,7,18,.75); border-bottom:1px solid var(--line); }
+.report-nav-inner { max-width:1220px; margin:auto; padding:12px 22px; display:flex; justify-content:space-between; gap:12px; align-items:center; } .report-list-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:rgba(120,240,199,.14); border:1px solid rgba(120,240,199,.48); color:#ddfff6; text-decoration:none; font-weight:900; }
+.wrap { max-width:1220px; margin:0 auto; padding:28px 22px 82px; }
+.infographic-spotlight{max-width:1280px;margin:28px auto 36px;padding:clamp(14px,2.3vw,28px);border:1px solid rgba(255,255,255,.16);border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 34px 90px rgba(0,0,0,.32)}
+.infographic-spotlight__label{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 13px;border-radius:999px;background:rgba(120,240,199,.14);border:1px solid rgba(120,240,199,.34);color:#d8fff8;font-weight:900;font-size:13px;letter-spacing:-.01em}
+.infographic-spotlight__frame{padding:clamp(8px,1.4vw,16px);border-radius:28px;background:rgba(3,8,18,.45);border:1px solid rgba(255,255,255,.13);overflow:hidden}
+.infographic-spotlight__frame img{display:block;width:100%;max-width:100%;height:auto!important;max-height:none!important;object-fit:contain;border-radius:20px;box-shadow:0 18px 55px rgba(0,0,0,.30)}
+.hero { display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:stretch; } .hero-main,.hero-side,.card,.slide,.metric,.step { background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.035)); border:1px solid var(--line); border-radius:30px; box-shadow:0 22px 60px rgba(0,0,0,.28); }
+.hero-main { padding:34px; } .hero-side { padding:26px; } .eyebrow { color:var(--mint); font-weight:950; letter-spacing:.08em; text-transform:uppercase; } h1 { font-size:clamp(40px,6.5vw,82px); line-height:.95; margin:14px 0 18px; letter-spacing:-.06em; } .lead { font-size:21px; color:#dcecff; max-width:780px; }
+.metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:24px; } .metric { padding:18px; border-radius:22px; } .metric b { display:block; font-size:28px; } .metric span { color:var(--muted); font-size:13px; }
+.section-title { margin:72px 0 18px; font-size:35px; letter-spacing:-.035em; } .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .card { padding:24px; min-height:188px; } .card h3 { margin:0 0 10px; font-size:22px; } .card p { color:var(--muted); margin:0; }
+.flow { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; } .step { position:relative; padding:21px; border-radius:24px; min-height:148px; } .step:not(:last-child)::after { content:'→'; position:absolute; right:-16px; top:44%; color:var(--mint); font-size:28px; font-weight:950; } .step b { display:block; font-size:19px; margin-bottom:8px; } .step span { color:var(--muted); }
+.slide { padding:34px; margin:18px 0; } .slide h2 { font-size:36px; margin:0 0 12px; letter-spacing:-.04em; } .slide p { color:#cddcf0; font-size:18px; margin:0; } .two { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.pillbox { display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; } .pill { display:inline-flex; padding:8px 11px; border-radius:999px; background:rgba(130,189,255,.12); border:1px solid rgba(130,189,255,.32); color:#dcecff; font-weight:800; font-size:13px; }
+.lang-row { display:flex; justify-content:space-between; gap:10px; margin:10px 0 5px; color:#e8f3ff; } .bar { height:9px; background:rgba(255,255,255,.09); border-radius:99px; overflow:hidden; } .bar i { display:block; height:100%; background:linear-gradient(90deg,var(--mint),var(--blue)); border-radius:99px; }
+.verdict { border-left:6px solid var(--mint); padding:22px 24px; background:rgba(120,240,199,.09); border-radius:22px; } .warn { border-left-color:var(--yellow); background:rgba(255,214,110,.09); } .danger { border-left-color:var(--pink); background:rgba(255,139,173,.08); }
+.kicker { display:inline-flex; color:#05111f; background:var(--yellow); border-radius:999px; padding:7px 12px; font-weight:950; margin-bottom:14px; } .mini { padding:16px; border-radius:18px; background:rgba(255,255,255,.06); border:1px solid var(--line); margin-top:10px; } .mini b { display:block; } .mini span { color:var(--muted); font-size:14px; }
+.footer { margin-top:70px; color:var(--muted); border-top:1px solid var(--line); padding-top:24px; } code { background:rgba(255,255,255,.1); padding:.15em .35em; border-radius:8px; }
+@media (max-width:940px) { .hero,.two { grid-template-columns:1fr; } .metrics,.grid,.flow { grid-template-columns:1fr; } .step:not(:last-child)::after { display:none; } h1 { font-size:44px; } }
+</style>
+</head>
+<body>
+<nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><span>업데이트: 2026-07-12 22:42 KST</span></div></nav>
+<main class="wrap">
+  <div class="infographic-spotlight" aria-label="대형 인포그래픽 보기">
+    <div class="infographic-spotlight__label">인포그래픽 크게 보기</div>
+    <div class="infographic-spotlight__frame"><img src="../assets/google-agents-cli-infographic.png" alt="google agents-cli 저장소 요약 인포그래픽" loading="eager" /></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-main">
+      <div class="eyebrow">GitHub Repository Report</div>
+      <h1>코딩 에이전트에게<br/>ADK 개발 전 과정을<br/>가르치는 CLI</h1>
+      <p class="lead"><b>google/agents-cli</b>는 Codex·Claude Code·Antigravity 같은 코딩 에이전트가 Google ADK 기반 AI 에이전트를 만들고, 평가하고, Google Cloud에 배포하도록 돕는 <b>CLI + 스킬 패키지</b>입니다.</p>
+      <div class="metrics">
+        <div class="metric"><b>5,051</b><span>GitHub Stars</span></div>
+        <div class="metric"><b>536</b><span>Forks</span></div>
+        <div class="metric"><b>27</b><span>Open Issues</span></div>
+        <div class="metric"><b>v1.1.0</b><span>최신 릴리스</span></div>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <span class="kicker">한 줄 판단</span>
+      <h2>“Google ADK/Cloud 에이전트 개발을 코딩 에이전트에게 맡기기 위한 작업 지침서”</h2>
+      <p style="color:var(--muted)">직접 프레임워크를 대체하는 코딩 에이전트가 아니라, 기존 코딩 에이전트가 ADK 프로젝트를 잘 만들도록 하는 보조 도구입니다.</p>
+      <div class="pillbox"><span class="pill">Python 3.11+</span><span class="pill">uv</span><span class="pill">Node.js</span><span class="pill">Apache-2.0</span></div>
+    </aside>
+  </section>
+
+  <h2 class="section-title">1. 이 레포가 해결하는 문제</h2>
+  <section class="slide"><h2>에이전트 개발에는 “프레임워크 지식”보다 “전체 생애주기 판단”이 더 어렵습니다</h2><p>ADK로 에이전트를 만드는 것 자체보다 스캐폴딩, 테스트, 평가 데이터, 배포 타깃, 인증, 관측, 운영 규칙을 한 흐름으로 묶는 일이 어렵습니다. agents-cli는 이 과정을 CLI 명령과 스킬 문서로 묶어 코딩 에이전트가 따라 할 수 있게 합니다.</p></section>
+
+  <h2 class="section-title">2. 작동 흐름</h2>
+  <div class="flow">
+    <div class="step"><b>요청</b><span>“문서 Q&A 에이전트를 만들어줘”처럼 목표를 전달</span></div>
+    <div class="step"><b>스킬 활성화</b><span>workflow, scaffold, eval, deploy 등 맥락 주입</span></div>
+    <div class="step"><b>프로젝트 생성</b><span><code>agents-cli scaffold</code>로 ADK 템플릿 구성</span></div>
+    <div class="step"><b>품질 루프</b><span>eval generate/grade/analyze/optimize로 개선</span></div>
+    <div class="step"><b>배포·운영</b><span>Agent Runtime, Cloud Run, GKE, 관측까지 연결</span></div>
+  </div>
+
+  <h2 class="section-title">3. 핵심 기능 카드</h2>
+  <div class="grid">
+    <div class="card"><h3>스캐폴딩</h3><p>Python, Go, Java, TypeScript 기반 ADK 에이전트 템플릿과 배포/CI 구조를 빠르게 시작합니다.</p></div>
+    <div class="card"><h3>평가 플라이휠</h3><p>평가 데이터 생성, 추론 실행, 채점, 비교, 실패 분석, 프롬프트 최적화 흐름을 제공합니다.</p></div>
+    <div class="card"><h3>배포 자동화</h3><p>Agent Runtime, Cloud Run, GKE, Terraform, CI/CD 구성을 한 도구 안에서 안내합니다.</p></div>
+    <div class="card"><h3>스킬 번들</h3><p>코딩 에이전트가 ADK API, 배포, 관측, 등록 과정을 실수 없이 따르도록 7개 스킬을 제공합니다.</p></div>
+    <div class="card"><h3>기존 코딩 에이전트 호환</h3><p>Codex, Claude Code, Antigravity CLI 등과 함께 쓰도록 설계되어 도구 교체가 아니라 보강에 가깝습니다.</p></div>
+    <div class="card"><h3>운영 관측</h3><p>Cloud Trace, Cloud Logging, BigQuery 분석 등 운영 단계의 확인 루프를 함께 다룹니다.</p></div>
+  </div>
+
+  <h2 class="section-title">4. 저장소 성숙도 신호</h2>
+  <div class="two">
+    <section class="slide"><h2>빠르게 성장 중인 공식형 도구</h2><p>2026-04-21 초기 공개 후 2026-06-30 GA 1.0, 2026-07-10 1.1.0까지 짧은 주기로 개선되고 있습니다. 현재 별 5,051개, 포크 536개로 관심도도 높습니다.</p><div class="pillbox"><span class="pill">생성일 2026-04-08</span><span class="pill">최근 업데이트 2026-07-12</span><span class="pill">커밋 6d7e6c1</span><span class="pill">파일 334개</span></div></section>
+    <section class="slide"><h2>언어 구성</h2><p>CLI 본체는 Python 중심이고, 배포 템플릿과 예제 때문에 HCL·Go·Java·TypeScript가 함께 포함됩니다.</p><div class="lang-row"><span>Python</span><b>78.4%</b></div><div class="bar"><i style="width:78.4%"></i></div><div class="lang-row"><span>HCL</span><b>12.7%</b></div><div class="bar"><i style="width:12.7%"></i></div><div class="lang-row"><span>Go</span><b>2.5%</b></div><div class="bar"><i style="width:2.5%"></i></div><div class="lang-row"><span>Java</span><b>2.3%</b></div><div class="bar"><i style="width:2.3%"></i></div><div class="lang-row"><span>Makefile</span><b>2.3%</b></div><div class="bar"><i style="width:2.3%"></i></div><div class="lang-row"><span>TypeScript</span><b>1.2%</b></div><div class="bar"><i style="width:1.2%"></i></div></section>
+  </div>
+
+  <h2 class="section-title">5. 도입 판단</h2>
+  <div class="two">
+    <section class="slide verdict"><h2>추천 대상</h2><p>Google ADK로 실제 에이전트를 만들거나, Google Cloud 배포까지 고려하는 팀. 특히 “코딩 에이전트에게 반복 가능한 개발 절차를 맡기고 싶은” 팀에 적합합니다.</p><div class="mini"><b>먼저 해볼 것</b><span><code>uvx google-agents-cli setup</code> 후 작은 샘플 에이전트를 만들고 eval grade까지 한 번 돌려보는 것이 좋습니다.</span></div></section>
+    <section class="slide warn"><h2>주의할 점</h2><p>Google Cloud/ADK 중심 도구라서 비 Google Cloud 스택, 자체 에이전트 런타임, LangGraph 중심 프로젝트에는 직접 효용이 제한될 수 있습니다. 또한 Pre-GA 관련 고지가 있어 운영 도입 전 서비스 약관과 지원 범위를 확인해야 합니다.</p></section>
+  </div>
+
+  <h2 class="section-title">6. SITPO 관점 메모</h2>
+  <section class="slide"><h2>“스킬팩으로 에이전트 작업 품질을 끌어올리는 방식”이 참고 포인트입니다</h2><p>웹사이트 클로너나 교육용 제작 파이프라인에도 비슷하게 분석·생성·검수·배포 스킬을 분리해 두면, 코딩 에이전트가 매번 임기응변하지 않고 정해진 품질 루프를 따라가게 만들 수 있습니다.</p></section>
+
+  <footer class="footer">
+    <p>Source: <a href="https://github.com/google/agents-cli">google/agents-cli</a> · License: Apache-2.0 · Contributors: <span class="pill">@sushicw</span><span class="pill">@eliasecchig</span><span class="pill">@CallumHYoung</span></p>
+    <p>분석 기준: GitHub API, README, RELEASE_NOTES, 저장소 파일 구조. 생성 시각: 2026-07-12 22:42 KST.</p>
+  </footer>
+</main>
+</body>
+</html>
