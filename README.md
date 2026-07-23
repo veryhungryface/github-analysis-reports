@@ -12,6 +12,7 @@
 - [doclang-project-doclang](reports/doclang-project-doclang.html)
 - [donchitos-claude-code-game-studios](reports/donchitos-claude-code-game-studios.html)
 - [google-agents-cli](reports/google-agents-cli.html)
+- [Jakubantalik-thinking-orbs](reports/Jakubantalik-thinking-orbs.html)
 - [jamiepine-voicebox](reports/jamiepine-voicebox.html)
 - [leonardsellem-plaud-sync-for-obsidian](reports/leonardsellem-plaud-sync-for-obsidian.html)
 - [MengTo-Skills](reports/MengTo-Skills.html)
