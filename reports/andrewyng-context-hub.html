@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="andrewyng/context-hub 저장소를 한국어 인포그래픽으로 설명한 GitHub 분석 보고서" />
+  <title>andrewyng/context-hub 분석 보고서</title>
+  <style>
+    :root{--bg:#0b1020;--paper:#fffaf2;--ink:#1f2430;--muted:#657084;--blue:#2563eb;--teal:#0f766e;--orange:#ea580c;--line:rgba(31,36,48,.14);--shadow:0 22px 70px rgba(10,18,32,.16)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Pretendard,Apple SD Gothic Neo,Segoe UI,sans-serif;background:radial-gradient(circle at 10% 0%,#e7f5ff 0,#fffaf2 34%,#f8efe2 100%);color:var(--ink);line-height:1.58} a{color:inherit}
+    .report-nav{position:sticky;top:0;z-index:30;background:rgba(255,250,242,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)} .report-nav-inner{max-width:1180px;margin:auto;padding:12px 22px} .report-list-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;color:#0f172a;background:white;border:1px solid var(--line);border-radius:999px;padding:10px 15px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .wrap{max-width:1180px;margin:auto;padding:28px 22px 80px} .infographic-spotlight{margin:18px 0 34px;padding:18px;border-radius:34px;background:rgba(255,255,255,.76);border:1px solid var(--line);box-shadow:var(--shadow)} .infographic-spotlight img{display:block;width:100%;max-height:none;object-fit:contain;border-radius:24px;background:#fff}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch;margin-bottom:24px} .panel{background:rgba(255,255,255,.76);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)} .eyebrow{font-size:13px;font-weight:900;color:var(--teal);letter-spacing:.12em;text-transform:uppercase} h1{font-size:clamp(40px,6vw,76px);line-height:.98;letter-spacing:-.06em;margin:8px 0 18px} .lead{font-size:21px;color:#364152;margin:0} .verdict{display:inline-block;margin-top:22px;padding:12px 16px;border-radius:18px;background:#0f172a;color:white;font-weight:900}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px} .stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px} .stat b{display:block;font-size:30px;letter-spacing:-.04em} .stat span{color:var(--muted);font-weight:700}
+    .slide{margin-top:20px;background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:32px;padding:30px;box-shadow:var(--shadow)} .slide h2{font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:0 0 16px} .slide p{font-size:18px;color:#445066;margin:0 0 14px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px} .card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px;min-height:150px} .card strong{display:block;font-size:20px;margin-bottom:8px} .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#e0f2fe;color:#075985;font-weight:900;font-size:12px;margin-bottom:10px}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px} .step{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;text-align:center;font-weight:900} .step small{display:block;color:var(--muted);font-weight:700;margin-top:6px} .step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:38%;font-size:22px;color:#64748b;z-index:2}
+    .judge{display:grid;grid-template-columns:1fr 1fr;gap:14px} .ok{border-left:8px solid var(--teal)} .warn{border-left:8px solid var(--orange)}
+    .footer{margin-top:34px;color:var(--muted);font-size:14px;text-align:center} code{background:#f1f5f9;border-radius:8px;padding:2px 6px} @media(max-width:900px){.hero,.judge{grid-template-columns:1fr}.cards,.flow,.stats{grid-template-columns:1fr}.step:not(:last-child)::after{display:none}}
+  </style>
+</head>
+<body>
+  <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a></div></nav>
+  <main class="wrap">
+    <section class="infographic-spotlight"><img src="../assets/andrewyng-context-hub-infographic.png" alt="Context Hub 저장소 핵심 설명 인포그래픽" /></section>
+    <section class="hero">
+      <div class="panel"><div class="eyebrow">GitHub Repo Infographic Report</div><h1>Context Hub는<br/>에이전트용 문서 기억장치입니다</h1><p class="lead"><b>andrewyng/context-hub</b>는 코딩 에이전트가 API를 추측하지 않고, 버전이 붙은 Markdown 문서를 검색·가져와 작업에 쓰도록 돕는 CLI/문서 허브입니다.</p><span class="verdict">추천 판단: AI 코딩 워크플로우를 운영한다면 샘플로 테스트해볼 가치가 큼</span></div>
+      <div class="panel"><div class="stats"><div class="stat"><b>13,826</b><span>Stars</span></div><div class="stat"><b>1,203</b><span>Forks</span></div><div class="stat"><b>JavaScript</b><span>Primary language</span></div><div class="stat"><b>MIT License</b><span>License</span></div><div class="stat"><b>v0.1.4</b><span>Latest release</span></div><div class="stat"><b>20</b><span>Open issues</span></div></div></div>
+    </section>
+    <section class="slide"><span class="tag">무엇을 해결하나</span><h2>문제는 “에이전트가 문서를 기억하지 못한다”는 점입니다.</h2><p>LLM 코딩 에이전트는 오래된 예제, 검색 결과 노이즈, 세션 종료 후 사라지는 시행착오 때문에 API 사용을 잘못 작성하기 쉽습니다. Context Hub는 검수된 문서와 로컬 주석을 CLI로 가져오게 해 이 문제를 줄입니다.</p><div class="cards"><div class="card"><strong>API 환각 감소</strong>최신 문서와 언어별 예제를 우선 읽게 합니다.</div><div class="card"><strong>토큰 절약</strong>필요한 문서나 reference 파일만 가져오는 증분 fetch를 지원합니다.</div><div class="card"><strong>경험 재사용</strong>로컬 annotation으로 “지난번에 막힌 점”을 다음 작업에 남깁니다.</div></div></section>
+    <section class="slide"><span class="tag">사용 흐름</span><h2>검색 → 가져오기 → 적용 → 피드백의 단순 루프입니다.</h2><div class="flow"><div class="step">검색<small><code>chub search</code></small></div><div class="step">문서 선택<small>ID/언어/버전</small></div><div class="step">가져오기<small><code>chub get</code></small></div><div class="step">코딩 적용<small>Markdown 읽기</small></div><div class="step">주석·피드백<small>다음 작업 개선</small></div></div></section>
+    <section class="slide"><span class="tag">누구에게 맞나</span><h2>개인보다 “에이전트를 반복 운영하는 팀”에서 가치가 큽니다.</h2><div class="cards"><div class="card"><strong>AI 코딩 에이전트 운영자</strong>Claude Code, Codex, Cursor류 에이전트가 매번 같은 문서를 안정적으로 보게 만들고 싶을 때 유용합니다.</div><div class="card"><strong>SDK/API 문서 관리자</strong>LLM이 읽기 쉬운 문서 패키지를 Markdown+frontmatter로 공개·개선할 수 있습니다.</div><div class="card"><strong>팀 표준화 담당자</strong>사내 API/관례 문서를 로컬 소스로 빌드해 팀 에이전트에 공급하는 흐름을 실험할 수 있습니다.</div></div></section>
+    <section class="slide"><span class="tag">채택 전 확인</span><h2>좋은 후보지만, 실제 프로젝트 샘플로 검증해야 합니다.</h2><div class="judge"><div class="card ok"><strong>먼저 해볼 것</strong><p><code>npm install -g @aisuite/chub</code> 후 자주 쓰는 API를 <code>chub search</code>, <code>chub get</code>으로 가져와 에이전트가 바로 쓸 수 있는지 확인하세요.</p></div><div class="card warn"><strong>주의할 점</strong><p>공개 문서 커버리지, 사내 문서 배포 방식, annotation을 untrusted input으로 다루는 운영 규칙을 먼저 정해야 합니다.</p></div></div></section>
+    <section class="slide"><span class="tag">저장소 신호</span><h2>문서 저장소이면서 CLI와 MCP 진입점까지 포함합니다.</h2><p>루트는 <code>content/</code>에 대량의 문서 패키지를 담고, <code>cli/</code> 워크스페이스가 <code>chub</code> 및 <code>chub-mcp</code> 실행 파일을 제공합니다. 현재 얕은 클론 기준 파일 약 1,855개, DOC.md 약 1,703개, Markdown 약 57.9만 줄 규모입니다.</p><p>검토 기준 커밋: <code>67dcbeb</code> · 최근 갱신: <code>2026-07-24</code> · 주요 기여자: rohitprasad15, Ivanye2509, neilthomass</p></section>
+    <div class="footer">생성 시각: 2026-07-24 15:53 KST · 원본 저장소: <a href="https://github.com/andrewyng/context-hub">https://github.com/andrewyng/context-hub</a></div>
+  </main>
+</body>
+</html>
