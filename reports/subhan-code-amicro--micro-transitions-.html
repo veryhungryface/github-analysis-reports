@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subhan-code/Amicro--Micro-transitions- 분석 보고서</title>
+  <meta name="description" content="React Motion 기반 마이크로인터랙션 컴포넌트 라이브러리 Amicro를 한국어 인포그래픽으로 분석한 보고서" />
+  <style>
+:root{--bg:#07111f;--bg2:#101a35;--panel:#ffffff;--ink:#0a1020;--muted:#5a6577;--line:#dbe5f3;--blue:#2368ff;--green:#0c9d65;--purple:#6d42d8;--amber:#f4a72c;--soft:#f7faff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Pretendard,"Apple SD Gothic Neo","Noto Sans KR",Segoe UI,sans-serif;background:linear-gradient(180deg,#07111f 0,#111b35 42%,#f6f8fc 42%,#eef3fb 100%);color:var(--ink)}.report-nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12)}.report-nav-inner{max-width:1180px;margin:auto;padding:12px 22px}.report-list-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#fff;color:#10213d;text-decoration:none;font-weight:900;box-shadow:0 8px 28px rgba(0,0,0,.18)}.wrap{max-width:1180px;margin:auto;padding:28px 22px 90px}.infographic-spotlight{margin:22px 0 28px;padding:18px;border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(239,245,255,.94));box-shadow:0 28px 90px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.8)}.infographic-spotlight img{width:100%;max-height:none;object-fit:contain;display:block;border-radius:24px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch;margin-bottom:22px}.hero-card,.stat-card,.slide{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 60px rgba(17,35,72,.14)}.hero-card{padding:36px}.eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;background:#eaf1ff;color:#1e55d6;font-weight:900;font-size:13px;margin-bottom:16px}h1{font-size:clamp(40px,7vw,76px);letter-spacing:-.07em;line-height:.92;margin:0 0 18px;color:#fff}.hero-card h1{color:var(--ink)}.lead{font-size:22px;line-height:1.48;color:#334155;margin:0}.hero-side{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stat-card{padding:22px}.stat-card b{display:block;font-size:32px;letter-spacing:-.04em}.stat-card span{display:block;margin-top:8px;color:var(--muted);font-weight:700}.slide{padding:32px;margin-top:22px}.slide h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.05em;margin:0 0 14px}.slide p{font-size:18px;line-height:1.7;color:#445063;margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.card{padding:22px;border-radius:24px;background:var(--soft);border:1px solid var(--line)}.card b{display:block;font-size:20px;margin-bottom:9px}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.flow div{position:relative;padding:24px 18px;border-radius:22px;background:linear-gradient(180deg,#fff,#eef5ff);border:1px solid #d7e5fa;text-align:center;font-weight:950;font-size:20px}.flow div:not(:last-child)::after{content:"→";position:absolute;right:-15px;top:50%;transform:translateY(-50%);color:var(--blue);font-size:28px}.verdict{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.good{border-left:8px solid var(--green)}.check{border-left:8px solid var(--amber)}.pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.pill{padding:9px 12px;border-radius:999px;background:#eef4ff;color:#214481;font-weight:900}.footer{margin-top:34px;padding:22px;color:#5a6577;text-align:center}@media(max-width:860px){.hero{grid-template-columns:1fr}.hero-side,.grid,.flow,.verdict{grid-template-columns:1fr}.flow div:not(:last-child)::after{display:none}.wrap{padding-left:14px;padding-right:14px}.hero-card,.slide{padding:24px}.infographic-spotlight{padding:10px;border-radius:24px}.infographic-spotlight img{border-radius:18px}}
+</style>
+</head>
+<body>
+<nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a></div></nav>
+<main class="wrap">
+  <section class="infographic-spotlight" aria-label="Amicro 인포그래픽">
+    <img src="../assets/subhan-code-amicro--micro-transitions--infographic.png" alt="Amicro 저장소를 한눈에 설명하는 한국어 인포그래픽" />
+  </section>
+
+  <section class="hero">
+    <div class="hero-card">
+      <span class="eyebrow">GitHub Repo Infographic Report</span>
+      <h1>Amicro는 무엇을 도와주나?</h1>
+      <p class="lead"><b>Subhan-code/Amicro--Micro-transitions-</b>는 React 화면에 버튼, 카드, 로더, 텍스트 전환 같은 작은 UI 움직임을 빠르게 붙일 수 있게 해주는 Motion 기반 컴포넌트/레지스트리 모음입니다.</p>
+      <div class="pillrow"><span class="pill">React · TypeScript</span><span class="pill">Motion 기반</span><span class="pill">shadcn식 레지스트리</span><span class="pill">MIT License</span></div>
+    </div>
+    <div class="hero-side">
+      <div class="stat-card"><b>155</b><span>registry/ui JSON 컴포넌트</span></div>
+      <div class="stat-card"><b>875</b><span>GitHub stars 확인</span></div>
+      <div class="stat-card"><b>1.0.1</b><span>npm 패키지 버전</span></div>
+      <div class="stat-card"><b>통과</b><span>npm run lint · build</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>한 줄 결론</h2>
+    <p>새 UI를 처음부터 설계하기보다, 검증된 작은 인터랙션을 골라 프로젝트 코드에 복사해 빠르게 실험하고 싶은 팀에 유용합니다.</p>
+    <div class="grid">
+      <div class="card good"><b>누구에게 유용한가</b><p>React/Next/Vite 화면에 버튼·카드·텍스트·로딩 애니메이션을 빠르게 얹고 싶은 프론트엔드 개발자.</p></div>
+      <div class="card good"><b>강점</b><p>README의 CLI 흐름과 shadcn URL 설치 방식이 명확하고, UI 효과 수가 많아 탐색 폭이 넓습니다.</p></div>
+      <div class="card check"><b>먼저 확인할 점</b><p>저장소가 비교적 새롭고 공식 릴리스가 없으며, npm audit에서 취약점 경고가 있어 실제 프로젝트 적용 전 점검이 필요합니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>사용 흐름</h2>
+    <p>핵심은 “설치 → 원하는 효과 선택 → 내 프로젝트 코드에 적용”입니다. 데모를 보는 데서 끝나지 않고, 개별 컴포넌트를 가져와 화면 단위로 시험하는 방식에 가깝습니다.</p>
+    <div class="flow"><div>입력<br/>UI 개선 필요</div><div>선택<br/>효과 탐색</div><div>적용<br/>CLI/레지스트리</div><div>결과<br/>움직이는 화면</div></div>
+  </section>
+
+  <section class="slide">
+    <h2>무엇이 들어 있나</h2>
+    <div class="grid">
+      <div class="card"><b>마이크로인터랙션</b><p>fade, zoom, slide, shimmer, text reveal, mouse-follow 등 작은 움직임 중심.</p></div>
+      <div class="card"><b>카드 레이아웃</b><p>arc, fan, cascade, carousel, cover flow, time machine 등 카드형 표현을 빠르게 실험 가능.</p></div>
+      <div class="card"><b>로더·스피너</b><p>dot, ring, square, wave, terminal loader 등 상태 표시용 움직임이 다양합니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>도입 판단</h2>
+    <div class="verdict">
+      <div class="card good"><b>시도해볼 만한 경우</b><p>프로토타입, 랜딩 페이지, SaaS 대시보드, 포트폴리오처럼 “작은 움직임이 체감 품질을 높이는” 화면을 빠르게 만들 때 적합합니다.</p></div>
+      <div class="card check"><b>바로 운영 반영 전 확인</b><p>패키지 취약점 경고, 번들 크기 경고, React 19/Motion 버전 호환성, 접근성/성능을 본인 프로젝트 샘플에서 먼저 확인하는 것이 좋습니다.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>검증 메모</h2>
+    <p>분석 시점 기준 저장소는 TypeScript 중심이며 378개 파일, 약 22k 라인을 확인했습니다. <code>npm ci</code>, <code>npm run lint</code>, <code>npm run build</code>는 실제 실행에서 통과했지만, npm audit은 14건의 취약점 경고를 보고했습니다.</p>
+  </section>
+
+  <div class="footer">분석 대상: <a href="https://github.com/Subhan-code/Amicro--Micro-transitions-">Subhan-code/Amicro--Micro-transitions-</a> · 생성일: 2026-07-26 · <a href="../index.html">보고서 목록으로 돌아가기</a></div>
+</main>
+</body></html>
