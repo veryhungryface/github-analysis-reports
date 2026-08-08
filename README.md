@@ -20,6 +20,7 @@
 - [MengTo-Skills](reports/MengTo-Skills.html)
 - [nexu-io-open-design](reports/nexu-io-open-design.html)
 - [no6kiko-gorest-2d-animation-spritesheet-generator](reports/no6kiko-gorest-2d-animation-spritesheet-generator.html)
+- [nyrahealth-CrisperWhisper](reports/nyrahealth-CrisperWhisper.html)
 - [opendatalab-mineru](reports/opendatalab-mineru.html)
 - [opendataloader-project-opendataloader-pdf](reports/opendataloader-project-opendataloader-pdf.html)
 - [oso95-scroll-world](reports/oso95-scroll-world.html)

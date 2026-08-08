@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CrisperWhisper는 버벅임·반복·웃음 같은 발화 흔적까지 보존하고 단어 단위 타임스탬프를 제공하는 고정밀 음성 인식 패키지입니다." />
+  <title>nyrahealth/CrisperWhisper 분석 보고서</title>
+  <style>
+    :root { --bg:#08111f; --panel:#10233d; --text:#f1f8ff; --muted:#a9bdd3; --cyan:#5fe7ff; --mint:#78f5c5; --violet:#b99bff; --line:rgba(255,255,255,.14); --warn:#ffe38c; }
+    * { box-sizing:border-box; } body { margin:0; font-family:Inter,Pretendard,"Apple SD Gothic Neo","Noto Sans KR",Segoe UI,sans-serif; background:radial-gradient(circle at 16% 0%,#173d66 0,#08111f 38%,#020712 100%); color:var(--text); }
+    a { color:inherit; } code { color:#dffbf5; background:rgba(255,255,255,.08); padding:2px 6px; border-radius:8px; }
+    .report-nav { position:sticky; top:0; z-index:20; backdrop-filter:blur(14px); background:rgba(3,9,19,.78); border-bottom:1px solid var(--line); }
+    .report-nav-inner { max-width:1220px; margin:auto; padding:12px 22px; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+    .report-list-btn { display:inline-flex; align-items:center; text-decoration:none; padding:10px 15px; border-radius:999px; background:linear-gradient(135deg,rgba(95,231,255,.18),rgba(120,245,197,.16)); border:1px solid rgba(120,245,197,.42); color:#eafff8; font-weight:900; }
+    .nav-meta { color:var(--muted); font-size:13px; } .wrap { max-width:1220px; margin:auto; padding:26px 22px 80px; }
+    .infographic-spotlight { width:100%; margin:18px 0 30px; padding:16px; border-radius:34px; background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035)); border:1px solid rgba(95,231,255,.35); box-shadow:0 24px 80px rgba(0,0,0,.34); }
+    .infographic-spotlight img { display:block; width:100%; max-height:none; object-fit:contain; border-radius:24px; }
+    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:22px; align-items:stretch; margin:20px 0 26px; }
+    .hero-card,.panel,.slide { border:1px solid var(--line); border-radius:32px; background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035)); box-shadow:0 18px 55px rgba(0,0,0,.22); }
+    .hero-card { padding:34px; } .eyebrow { display:inline-flex; color:#06111f; background:linear-gradient(90deg,var(--cyan),var(--mint)); padding:8px 12px; border-radius:999px; font-weight:950; font-size:13px; }
+    h1 { margin:18px 0 16px; font-size:clamp(40px,6.8vw,84px); line-height:.94; letter-spacing:-.07em; } .lead { font-size:22px; line-height:1.55; color:#dcecff; }
+    .repo-link { display:inline-flex; margin-top:18px; text-decoration:none; color:#e5fff8; border-bottom:2px solid rgba(120,245,197,.55); font-weight:850; }
+    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; padding:20px; } .stat { border:1px solid rgba(255,255,255,.12); background:rgba(6,18,32,.56); border-radius:22px; padding:18px; }
+    .stat b { display:block; font-size:26px; color:var(--mint); } .stat span { color:var(--muted); font-size:13px; }
+    .slide { margin:22px 0; padding:30px; background:linear-gradient(135deg,rgba(16,38,66,.88),rgba(8,18,34,.76)); } .slide h2 { margin:0 0 12px; font-size:clamp(28px,4vw,48px); letter-spacing:-.045em; } .slide p { color:#d7e7f7; font-size:18px; line-height:1.7; margin:0; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px; } .card { padding:22px; border-radius:26px; border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.055); min-height:165px; }
+    .card strong { display:block; font-size:22px; color:#fff; margin-bottom:10px; } .card span { color:var(--muted); line-height:1.55; }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; } .step { position:relative; min-height:140px; padding:20px; border-radius:24px; border:1px solid rgba(95,231,255,.28); background:rgba(95,231,255,.07); } .step:not(:last-child)::after { content:'→'; position:absolute; right:-15px; top:45%; color:var(--cyan); font-size:28px; font-weight:900; } .step b { display:block; color:var(--mint); font-size:20px; margin-bottom:8px; }
+    .verdict { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; } .yes { border-color:rgba(120,245,197,.35); } .caution { border-color:rgba(255,227,140,.36); } .small { color:var(--muted); font-size:14px; margin-top:18px; }
+    footer { color:var(--muted); padding:26px 0 0; border-top:1px solid var(--line); margin-top:34px; line-height:1.6; }
+    @media(max-width:900px) { .hero,.grid,.flow,.verdict { grid-template-columns:1fr; } .step:not(:last-child)::after { display:none; } .stats { grid-template-columns:1fr 1fr; } } @media(max-width:560px) { .stats { grid-template-columns:1fr; } .hero-card,.slide { padding:22px; border-radius:24px; } }
+  </style>
+</head>
+<body>
+  <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><div class="nav-meta">생성 2026-08-08 21:36 KST</div></div></nav>
+  <main class="wrap">
+    <section class="infographic-spotlight" aria-label="CrisperWhisper 인포그래픽"><img src="../assets/nyrahealth-CrisperWhisper-infographic.png" alt="CrisperWhisper 저장소 핵심을 요약한 한국어 인포그래픽" /></section>
+    <section class="hero"><div class="hero-card"><span class="eyebrow">VERBATIM ASR · WORD TIMESTAMPS</span><h1>말한 그대로 남기는<br/>고정밀 음성 전사</h1><p class="lead">CrisperWhisper는 버벅임, 반복, 끊긴 말, 웃음 같은 발화 흔적을 보존하거나 읽기 좋은 문장으로 정리하는 방식을 선택할 수 있는 Python 음성 인식 패키지야</p><a class="repo-link" href="https://github.com/nyrahealth/CrisperWhisper">nyrahealth/CrisperWhisper 바로가기</a></div><aside class="panel stats" aria-label="저장소 지표"><div class="stat"><b>1,245</b><span>Stars</span></div><div class="stat"><b>74</b><span>Forks</span></div><div class="stat"><b>Python</b><span>주요 언어</span></div><div class="stat"><b>v2.0.1</b><span>최근 릴리스</span></div><div class="stat"><b>MIT 코드</b><span>모델은 별도 라이선스</span></div><div class="stat"><b>19</b><span>테스트 파일</span></div></aside></section>
+    <section class="slide"><h2>뭘 도와주나</h2><p>일반 STT가 종종 지워버리는 filler, 반복, false start, vocal sound를 데이터로 남기고 싶을 때 유용해. 같은 음성에서 말한 그대로의 전사와 읽기 좋은 전사를 선택할 수 있어서 연구·의료 음성 분석·TTS 데이터 구축에 맞아</p><div class="grid"><div class="card"><strong>그대로 전사</strong><span>[um], 반복, 끊긴 말, 웃음 같은 실제 발화 흔적을 보존하는 쪽에 강점</span></div><div class="card"><strong>깨끗한 전사</strong><span>필요할 땐 intended 모드로 숫자·날짜·문장을 읽기 좋게 정리</span></div><div class="card"><strong>단어 시간표</strong><span>README 기준 단어 경계 오차가 약 30ms 수준이라고 제시됨</span></div></div></section>
+    <section class="slide"><h2>작동 흐름은 이렇게 보면 돼</h2><p>오디오를 넣고 전사 모드를 고른 뒤, 단어 단위 타임라인과 결과 텍스트를 받아 분석·자막·데이터셋 작업에 쓰는 구조야</p><div class="flow"><div class="step"><b>음성 파일</b><span>회의, 인터뷰, 임상 음성, 녹음 자료</span></div><div class="step"><b>모드 선택</b><span>verbatim 또는 intended</span></div><div class="step"><b>정렬</b><span>word timestamps, forced alignment, longform 처리</span></div><div class="step"><b>활용</b><span>자막, 연구 분석, TTS 데이터셋</span></div></div></section>
+    <section class="slide"><h2>기술적으로 눈에 띄는 부분</h2><div class="grid"><div class="card"><strong>두 백엔드</strong><span>CTranslate2 기반 fast path와 HuggingFace Transformers 기반 portable path를 선택 가능</span></div><div class="card"><strong>긴 오디오 처리</strong><span>30초 단위 경계에서 중복·누락이 생기지 않도록 continuation 전략을 제공</span></div><div class="card"><strong>Verbatimize</strong><span>이미 믿을 만한 깨끗한 자막이 있을 때 실제 발화 흔적만 삽입하는 기능이 특이함</span></div><div class="card"><strong>추측 디코딩</strong><span>ct2 backend에서 draft model을 써서 README 기준 1.3~1.4배 빠른 경로 제공</span></div><div class="card"><strong>환각 완화</strong><span>Whisper 계열의 반복 루프 문제를 감지·억제하는 디코딩 완화책 포함</span></div><div class="card"><strong>문서 밀도</strong><span>DOCS.md가 1천 줄 넘게 API, 설치, longform, 정렬, 라이선스 caveat를 설명함</span></div></div></section>
+    <section class="slide"><h2>누가 써보면 좋나</h2><div class="verdict"><div class="card yes"><strong>추천</strong><span>발화 습관, 침묵 주변 말, 반복·말더듬, 의료·상담·인터뷰 원자료처럼 “말한 방식”이 중요한 팀에게 잘 맞아</span></div><div class="card caution"><strong>먼저 확인</strong><span>상업용이면 모델 가중치 라이선스를 꼭 확인해야 해. 코드 MIT와 모델 라이선스가 다르다는 점이 핵심 리스크야</span></div></div><p class="small">빠른 시작: <code>pip install "crisperwhisper[ct2]"</code> 또는 <code>pip install "crisperwhisper[transformers]"</code></p></section>
+    <section class="slide"><h2>한 줄 판단</h2><p>단순히 “내용만 맞는 자막”이 아니라 말버릇과 발화 이벤트까지 데이터로 남겨야 한다면 꽤 강한 후보야. 대신 모델 라이선스와 GPU/백엔드 환경을 샘플 오디오로 먼저 검증하는 게 좋아</p></section>
+    <footer><div>분석 기준: README, DOCS.md, pyproject.toml, GitHub 메타데이터, 로컬 코드 스캔</div><div>저장소 업데이트: 2026-08-08 · 기본 브랜치 main · 코드 MIT, 모델은 별도 비상업/상업 라이선스 확인 필요</div></footer>
+  </main>
+</body>
+</html>
