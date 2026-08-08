@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Magnitude는 로컬 모델과 자체 추론 엔진으로 민감한 파일·코드·로그를 내 PC 안에서 처리하게 돕는 오픈소스 AI 에이전트입니다." />
+  <title>magnitudedev/magnitude 분석 보고서</title>
+  <style>
+    :root {
+      --bg:#07111f; --panel:#0d1f36; --panel2:#102a47; --text:#eff7ff; --muted:#a8bdd4;
+      --cyan:#52e7ff; --mint:#76f5c7; --blue:#88b8ff; --line:rgba(255,255,255,.14); --warn:#ffe08a;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,Pretendard,"Apple SD Gothic Neo","Noto Sans KR",Segoe UI,sans-serif; background:radial-gradient(circle at 14% 0%,#173d65 0,#07111f 38%,#020712 100%); color:var(--text); }
+    a { color:inherit; }
+    .report-nav { position:sticky; top:0; z-index:20; backdrop-filter: blur(14px); background:rgba(4,10,20,.78); border-bottom:1px solid var(--line); }
+    .report-nav-inner { max-width:1220px; margin:auto; padding:12px 22px; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+    .report-list-btn { display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 15px; border-radius:999px; background:linear-gradient(135deg,rgba(82,231,255,.18),rgba(118,245,199,.16)); border:1px solid rgba(118,245,199,.42); color:#eafff9; font-weight:900; }
+    .nav-meta { color:var(--muted); font-size:13px; }
+    .wrap { max-width:1220px; margin:auto; padding:26px 22px 80px; }
+    .infographic-spotlight { width:100%; margin:18px 0 30px; padding:16px; border-radius:34px; background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035)); border:1px solid rgba(82,231,255,.35); box-shadow:0 24px 80px rgba(0,0,0,.34); }
+    .infographic-spotlight img { display:block; width:100%; max-height:none; object-fit:contain; border-radius:24px; }
+    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:22px; align-items:stretch; margin:20px 0 26px; }
+    .hero-card, .panel { border:1px solid var(--line); border-radius:30px; background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035)); box-shadow:0 18px 55px rgba(0,0,0,.24); }
+    .hero-card { padding:34px; }
+    .eyebrow { display:inline-flex; color:#07111f; background:linear-gradient(90deg,var(--cyan),var(--mint)); padding:8px 12px; border-radius:999px; font-weight:950; font-size:13px; letter-spacing:.02em; }
+    h1 { margin:18px 0 16px; font-size:clamp(42px,7vw,88px); line-height:.92; letter-spacing:-.07em; }
+    .lead { font-size:22px; line-height:1.55; color:#dcecff; max-width:800px; }
+    .repo-link { display:inline-flex; margin-top:18px; text-decoration:none; color:#dffff7; border-bottom:2px solid rgba(118,245,199,.55); font-weight:850; }
+    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; padding:20px; }
+    .stat { border:1px solid rgba(255,255,255,.12); background:rgba(6,18,32,.56); border-radius:22px; padding:18px; }
+    .stat b { display:block; font-size:27px; color:var(--mint); }
+    .stat span { color:var(--muted); font-size:13px; }
+    .slide { margin:22px 0; padding:30px; border:1px solid var(--line); border-radius:34px; background:linear-gradient(135deg,rgba(15,38,66,.88),rgba(8,18,34,.76)); box-shadow:0 18px 50px rgba(0,0,0,.20); }
+    .slide h2 { margin:0 0 12px; font-size:clamp(28px,4vw,48px); letter-spacing:-.045em; }
+    .slide p { color:#d7e7f7; font-size:18px; line-height:1.7; margin:0; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px; }
+    .card { padding:22px; border-radius:26px; border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.055); min-height:165px; }
+    .card strong { display:block; font-size:22px; color:#ffffff; margin-bottom:10px; }
+    .card span { color:var(--muted); line-height:1.55; }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; }
+    .flow .step { position:relative; min-height:140px; padding:20px; border-radius:24px; border:1px solid rgba(82,231,255,.28); background:rgba(82,231,255,.07); }
+    .flow .step:not(:last-child)::after { content:'→'; position:absolute; right:-15px; top:45%; color:var(--cyan); font-size:28px; font-weight:900; }
+    .step b { display:block; color:var(--mint); font-size:20px; margin-bottom:8px; }
+    .verdict { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+    .yes { border-color:rgba(118,245,199,.35); } .caution { border-color:rgba(255,224,138,.36); }
+    .small { color:var(--muted); font-size:14px; margin-top:18px; }
+    footer { color:var(--muted); padding:26px 0 0; border-top:1px solid var(--line); margin-top:34px; line-height:1.6; }
+    @media(max-width:900px) { .hero,.grid,.flow,.verdict { grid-template-columns:1fr; } .flow .step:not(:last-child)::after { display:none; } .stats { grid-template-columns:1fr 1fr; } }
+    @media(max-width:560px) { .stats { grid-template-columns:1fr; } .hero-card,.slide { padding:22px; border-radius:24px; } }
+  </style>
+</head>
+<body>
+  <nav class="report-nav">
+    <div class="report-nav-inner">
+      <a class="report-list-btn" href="../index.html">← 보고서 목록</a>
+      <div class="nav-meta">생성 2026-08-08 20:59 KST</div>
+    </div>
+  </nav>
+  <main class="wrap">
+    <section class="infographic-spotlight" aria-label="Magnitude 인포그래픽">
+      <img src="../assets/magnitudedev-magnitude-infographic.png" alt="Magnitude 저장소 핵심을 요약한 한국어 인포그래픽" />
+    </section>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">LOCAL AI AGENT · OPEN SOURCE</span>
+        <h1>내 PC 안에서 굴리는<br/>AI 작업 에이전트</h1>
+        <p class="lead">Magnitude는 로컬 모델과 자체 추론 엔진을 묶어, 민감한 코드·문서·로그를 외부 API 없이 분석하고 편집하게 돕는 오픈소스 에이전트야</p>
+        <a class="repo-link" href="https://github.com/magnitudedev/magnitude">magnitudedev/magnitude 바로가기</a>
+      </div>
+      <aside class="panel stats" aria-label="저장소 지표">
+        <div class="stat"><b>372</b><span>Stars</span></div>
+        <div class="stat"><b>29</b><span>Forks</span></div>
+        <div class="stat"><b>Apache-2.0</b><span>License</span></div>
+        <div class="stat"><b>alpha.37</b><span>최근 CLI 프리릴리스</span></div>
+        <div class="stat"><b>TypeScript</b><span>주요 언어</span></div>
+        <div class="stat"><b>1,855</b><span>스캔 파일 수</span></div>
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>뭘 도와주나</h2>
+      <p>로컬 LLM을 설치하고 실행하는 부담을 줄이면서, 파일 읽기·수정·셸 실행·스크립트 작성 같은 작업을 에이전트에게 맡기는 흐름을 제공해. 핵심 가치는 “개인 자료를 밖으로 보내지 않고도 AI 작업을 시도한다” 쪽에 있어</p>
+      <div class="grid">
+        <div class="card"><strong>민감 자료 분석</strong><span>사내 코드, 개인 노트, 로그처럼 외부 API에 올리기 애매한 데이터를 로컬에서 다루는 용도</span></div>
+        <div class="card"><strong>개발 보조</strong><span>코드 리뷰, 파일 검색, 자동 수정, 스크립트 생성 같은 CLI 기반 작업에 맞음</span></div>
+        <div class="card"><strong>문서 자동화</strong><span>스킬을 붙이면 브라우저, 엑셀, PPT, PDF 같은 업무형 작업으로 확장 가능</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>작동 흐름은 단순해</h2>
+      <p>사용자는 프로젝트 폴더에서 CLI를 실행하고, Magnitude는 하드웨어를 보고 적절한 모델 설정과 실행을 관리하는 구조야</p>
+      <div class="flow">
+        <div class="step"><b>입력</b><span>파일, 코드, 로그, 문서, 이미지</span></div>
+        <div class="step"><b>로컬 추론</b><span>Rust 기반 엔진이 모델 실행과 메모리 요구량을 관리</span></div>
+        <div class="step"><b>에이전트 작업</b><span>셸 실행, 파일 편집, 스크립트 생성, 긴 세션 처리</span></div>
+        <div class="step"><b>결과</b><span>분석, 수정안, 자동화 산출물, 정리된 문서</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>기술적으로 눈에 띄는 부분</h2>
+      <div class="grid">
+        <div class="card"><strong>자체 추론 엔진</strong><span>llama.cpp 기반 Rust 엔진을 포함하고, 모델 구성·메모리 계산·가속 설정을 다루는 게 차별점</span></div>
+        <div class="card"><strong>모노레포 구조</strong><span>CLI, web, desktop, inference, SDK, agent runtime, provider 계층이 분리되어 있음</span></div>
+        <div class="card"><strong>설계 문서 많음</strong><span>design·info 문서가 비교적 풍부해서 아직 빠르게 변하는 프로젝트지만 방향성은 읽기 쉬움</span></div>
+        <div class="card"><strong>Bun + TypeScript</strong><span>React/OpenTUI 기반 CLI와 Effect-TS 중심 패턴을 사용함</span></div>
+        <div class="card"><strong>테스트 흔적</strong><span>검색 기준 95개 테스트 호출이 확인되어, 최소한 CLI와 유틸 단위 검증은 진행 중</span></div>
+        <div class="card"><strong>프리릴리스 단계</strong><span>최근 릴리스가 alpha 태그라 운영 도입보단 실험·검증에 가까움</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>누가 써보면 좋나</h2>
+      <div class="verdict">
+        <div class="card yes"><strong>추천</strong><span>로컬 모델 기반 AI 에이전트를 직접 써보고 싶거나, 민감한 저장소·문서를 외부 API 없이 다루고 싶은 개발자에게 맞아</span></div>
+        <div class="card caution"><strong>먼저 확인</strong><span>로컬 모델 성능, 하드웨어 메모리, macOS/Linux 환경, CLI alpha 안정성을 작은 프로젝트에서 먼저 봐야 해</span></div>
+      </div>
+      <p class="small">빠른 시작: <code>npm install -g @magnitudedev/cli</code> 후 프로젝트 폴더에서 <code>magnitude</code> 실행</p>
+    </section>
+
+    <section class="slide">
+      <h2>한 줄 판단</h2>
+      <p>클라우드 API 기반 코딩 에이전트가 부담스럽고 “내 컴퓨터에서 사적인 자료까지 다루는 에이전트”가 필요하면 꽤 흥미로운 후보야. 다만 아직 alpha라, 바로 업무 핵심에 넣기보단 샘플 프로젝트로 모델 품질과 속도를 먼저 확인하는 쪽이 안전해</p>
+    </section>
+
+    <footer>
+      <div>분석 기준: README, package scripts, 설계/정보 문서, GitHub 메타데이터, 로컬 코드 스캔</div>
+      <div>저장소 업데이트: 2026-08-08 · 기본 브랜치 main · Apache License 2.0</div>
+    </footer>
+  </main>
+</body>
+</html>

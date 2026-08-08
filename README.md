@@ -16,6 +16,7 @@
 - [Jakubantalik-thinking-orbs](reports/Jakubantalik-thinking-orbs.html)
 - [jamiepine-voicebox](reports/jamiepine-voicebox.html)
 - [leonardsellem-plaud-sync-for-obsidian](reports/leonardsellem-plaud-sync-for-obsidian.html)
+- [magnitudedev-magnitude](reports/magnitudedev-magnitude.html)
 - [MengTo-Skills](reports/MengTo-Skills.html)
 - [nexu-io-open-design](reports/nexu-io-open-design.html)
 - [no6kiko-gorest-2d-animation-spritesheet-generator](reports/no6kiko-gorest-2d-animation-spritesheet-generator.html)
