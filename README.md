@@ -30,3 +30,4 @@
 - [vercel-eve](reports/vercel-eve.html)
 - [withmarbleapp-os-taxonomy](reports/withmarbleapp-os-taxonomy.html)
 - [yelixir-dev-commandcode-bridge](reports/yelixir-dev-commandcode-bridge.html)
+- [Aerolab/silicon-baires](reports/Aerolab-silicon-baires.html) — 코드 기반 Blender 도시를 WebGL·영상으로 이어주는 저장소

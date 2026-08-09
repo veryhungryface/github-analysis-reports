@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aerolab/silicon-baires 분석 보고서</title>
+  <meta name="description" content="Aerolab/silicon-baires는 코드로 부에노스아이레스풍 3D 도시를 만들고 브라우저·영상으로 내보내는 실험형 저장소입니다." />
+  <style>
+    :root { --bg:#071018; --panel:#0e1b29; --ink:#f6fbff; --muted:#aab9c8; --line:rgba(255,255,255,.14); --mint:#59e6c4; --sky:#7dc6ff; --orange:#ff9d66; --yellow:#ffd86a; }
+    * { box-sizing:border-box }
+    body { margin:0; font-family:Inter,Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif; background:radial-gradient(circle at 20% 0%,#1c405f 0,#071018 42%,#02050a 100%); color:var(--ink); }
+    .report-nav { position:sticky; top:0; z-index:10; backdrop-filter:blur(16px); background:rgba(7,16,24,.74); border-bottom:1px solid var(--line); }
+    .report-nav-inner { max-width:1180px; margin:auto; padding:12px 22px; display:flex; justify-content:space-between; gap:12px; align-items:center; }
+    .report-list-btn { display:inline-flex; align-items:center; padding:10px 14px; border-radius:999px; color:#061018; background:linear-gradient(135deg,var(--mint),var(--sky)); text-decoration:none; font-weight:900; }
+    .nav-meta { color:var(--muted); font-size:13px }
+    main { max-width:1180px; margin:auto; padding:26px 22px 86px; }
+    .infographic-spotlight { width:100%; margin:16px 0 28px; padding:12px; border-radius:34px; background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)); border:1px solid var(--line); box-shadow:0 28px 90px rgba(0,0,0,.42); }
+    .infographic-spotlight img { display:block; width:100%; max-height:none; object-fit:contain; border-radius:24px; }
+    .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:22px; align-items:stretch; margin-top:22px; }
+    .panel { background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04)); border:1px solid var(--line); border-radius:32px; padding:28px; box-shadow:0 20px 70px rgba(0,0,0,.28); }
+    h1 { margin:0; font-size:clamp(42px,7vw,78px); line-height:.95; letter-spacing:-.06em; }
+    h2 { margin:0 0 16px; font-size:clamp(28px,4vw,46px); line-height:1; letter-spacing:-.045em; }
+    h3 { margin:0 0 8px; font-size:20px }
+    p { color:#dbe8f5; line-height:1.72; margin:0 }
+    .lead { font-size:20px; margin-top:18px; max-width:760px }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px }
+    .chip { padding:9px 12px; border-radius:999px; background:rgba(125,198,255,.12); border:1px solid rgba(125,198,255,.28); color:#dff2ff; font-weight:800; font-size:13px }
+    .metric-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px }
+    .metric { padding:18px; border-radius:22px; background:rgba(0,0,0,.19); border:1px solid var(--line) }
+    .metric b { display:block; font-size:30px; color:var(--mint) }
+    .metric span { color:var(--muted); font-size:13px }
+    .slide { margin-top:24px; min-height:360px; display:grid; grid-template-columns:.9fr 1.1fr; gap:18px; align-items:stretch }
+    .big { font-size:clamp(34px,5vw,58px); line-height:1.02; letter-spacing:-.055em }
+    .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px }
+    .card { border:1px solid var(--line); background:rgba(255,255,255,.055); border-radius:26px; padding:22px }
+    .card strong { color:#fff; font-size:18px }
+    .card p { margin-top:8px; color:var(--muted); font-size:15px }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px }
+    .step { min-height:150px; border-radius:26px; padding:18px; background:linear-gradient(180deg,rgba(89,230,196,.14),rgba(125,198,255,.07)); border:1px solid rgba(89,230,196,.28); }
+    .step em { display:inline-flex; width:34px; height:34px; border-radius:50%; justify-content:center; align-items:center; color:#061018; background:var(--yellow); font-style:normal; font-weight:950; margin-bottom:14px }
+    .verdict { display:grid; grid-template-columns:repeat(3,1fr); gap:14px }
+    .ok { border-color:rgba(89,230,196,.36) } .warn { border-color:rgba(255,216,106,.36) } .risk { border-color:rgba(255,157,102,.42) }
+    .footer { margin-top:28px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:18px }
+    a { color:#aee9ff }
+    @media(max-width:900px) { .hero,.slide { grid-template-columns:1fr } .cards,.flow,.verdict,.metric-grid { grid-template-columns:1fr } h1 { font-size:44px } }
+  </style>
+</head>
+<body>
+  <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><span class="nav-meta">갱신 2026-08-09 15:53 KST</span></div></nav>
+  <main>
+    <section class="infographic-spotlight"><img src="../assets/Aerolab-silicon-baires-infographic.png" alt="Aerolab/silicon-baires 한국어 인포그래픽" /></section>
+
+    <section class="hero">
+      <div class="panel">
+        <h1>Aerolab/silicon-baires<br/>한눈에 보기</h1>
+        <p class="lead">코드만으로 부에노스아이레스풍 아이소메트릭 도시를 만들고, Blender 산출물을 WebGL 브라우저와 영상 캡처까지 이어주는 재현 가능한 3D 제작 실험이야.</p>
+        <div class="chips"><span class="chip">Blender Python</span><span class="chip">Headless render</span><span class="chip">three.js/WebGL</span><span class="chip">Video capture</span><span class="chip">0BSD</span></div>
+      </div>
+      <div class="panel metric-grid">
+        <div class="metric"><b>5</b><span>stars</span></div>
+        <div class="metric"><b>2</b><span>forks</span></div>
+        <div class="metric"><b>13k</b><span>대략 코드 라인</span></div>
+        <div class="metric"><b>60fps</b><span>브라우저 목표</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">무엇을 도와주나</h2><p>3D 도시 장면을 손으로 클릭해서 만드는 대신, Python 스크립트와 규칙으로 쌓아 올린 뒤 같은 자산을 브라우저와 영상으로 재사용하게 해줘.</p></div>
+      <div class="cards">
+        <div class="card"><strong>코드 기반 3D 제작</strong><p>건물, 도로, 사람, 차량, 카메라 이동을 스크립트로 재현할 수 있어.</p></div>
+        <div class="card"><strong>시각 검증 문화</strong><p>렌더가 성공 코드만으로는 충분하지 않다는 점을 체크와 문서로 고정해둠.</p></div>
+        <div class="card"><strong>브라우저 전환</strong><p>.blend 결과를 GLB·모션·샷 데이터로 내보내 three.js에서 보여줌.</p></div>
+        <div class="card"><strong>프레임 단위 영상</strong><p>화면 녹화가 아니라 브라우저가 프레임을 직접 그려 영상을 생성함.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">흐름은 단순해</h2><p>입력은 도시 규칙과 스크립트, 처리는 Blender, 출력은 .blend와 WebGL·영상 산출물로 이어져.</p></div>
+      <div class="flow">
+        <div class="step"><em>1</em><h3>규칙 작성</h3><p>도시 배치, 색, 카메라, 검증 기준을 코드에 둠.</p></div>
+        <div class="step"><em>2</em><h3>장면 생성</h3><p>Headless Blender가 레이어별로 city.blend를 갱신함.</p></div>
+        <div class="step"><em>3</em><h3>웹 내보내기</h3><p>GLB, motion, shot, sky 데이터를 브라우저로 넘김.</p></div>
+        <div class="step"><em>4</em><h3>검증·녹화</h3><p>렌더 밝기, 충돌, 교통, 프레임 캡처를 확인함.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">도입 판단</h2><p>라이브러리처럼 가져다 쓰기보다, “코드로 만든 3D 씬을 끝까지 제품 화면과 영상으로 보내는 법”을 배울 때 가치가 커.</p></div>
+      <div class="verdict">
+        <div class="card ok"><strong>바로 볼 만함</strong><p>생성형 3D 파이프라인, WebGL 포트폴리오, Blender 자동화 샘플이 필요한 팀.</p></div>
+        <div class="card warn"><strong>먼저 확인</strong><p>Blender 5.2, Node 18+, ffmpeg, 폰트 경로 등 로컬 환경 준비가 필요함.</p></div>
+        <div class="card risk"><strong>주의점</strong><p>브랜드 로고와 상업 폰트는 코드 라이선스와 별개로 직접 사용 권리를 판단해야 함.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">기술 신호</h2><p>작지만 문서 밀도와 검증 철학이 강한 저장소야. Python이 중심이고 웹 파트는 three.js/Vite로 구성돼.</p></div>
+      <div class="cards">
+        <div class="card"><strong>구성</strong><p>blib 라이브러리, scripts/city 단계, docs/city 문서, web 브라우저 빌드로 나뉨.</p></div>
+        <div class="card"><strong>검증</strong><p>겹침, 부유, 교통, 표지판, 크라우드 등 시각 실패를 숫자로 확인하는 스크립트가 있음.</p></div>
+        <div class="card"><strong>웹 비용</strong><p>README 기준 GLB 약 3.3MB, 427 draw calls, M4 Pro에서 60fps 목표.</p></div>
+        <div class="card"><strong>라이선스</strong><p>코드는 0BSD지만 로고·폰트·벤더 스킬은 별도 권리 확인이 필요함.</p></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>짧은 결론</h2>
+      <p>이 저장소는 “멋진 도시 데모”보다 “3D 장면을 코드로 만들고, 검증하고, 브라우저와 영상까지 연결하는 작업 방식”이 더 핵심이야. 직접 쓰려면 먼저 <code>./bl scripts/verify_setup.py</code>와 <code>web</code> 실행까지 자기 장비에서 통과하는지 보는 게 좋아.</p>
+      <p class="footer">출처: <a href="https://github.com/Aerolab/silicon-baires">https://github.com/Aerolab/silicon-baires</a> · 홈페이지: <a href="https://silicon-baires.vercel.app">https://silicon-baires.vercel.app</a> · 메타데이터 갱신 2026-08-09 15:53 KST</p>
+    </section>
+  </main>
+</body>
+</html>
