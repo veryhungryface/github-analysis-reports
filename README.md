@@ -31,3 +31,4 @@
 - [withmarbleapp-os-taxonomy](reports/withmarbleapp-os-taxonomy.html)
 - [yelixir-dev-commandcode-bridge](reports/yelixir-dev-commandcode-bridge.html)
 - [Aerolab/silicon-baires](reports/Aerolab-silicon-baires.html) — 코드 기반 Blender 도시를 WebGL·영상으로 이어주는 저장소
+- [ryancampbell/kart-royale](reports/ryancampbell-kart-royale.html) — 아트 에셋 없이 코드로 생성되는 브라우저 카트 레이싱 게임

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ryancampbell/kart-royale 분석 보고서</title>
+  <meta name="description" content="ryancampbell/kart-royale는 런타임에 메시·텍스처·사운드까지 코드로 생성하는 브라우저 카트 레이싱 게임입니다." />
+  <style>
+    :root { --bg:#07111d; --panel:#0d1b2c; --ink:#f8fbff; --muted:#aab8ca; --line:rgba(255,255,255,.15); --blue:#74c6ff; --mint:#64e6bd; --pink:#ff69ad; --sun:#ffd76f; --orange:#ff9a5e; }
+    * { box-sizing:border-box }
+    body { margin:0; font-family:Inter,Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif; background:radial-gradient(circle at 16% 0%,#244c84 0,#07111d 44%,#030711 100%); color:var(--ink); }
+    .report-nav { position:sticky; top:0; z-index:10; backdrop-filter:blur(16px); background:rgba(7,17,29,.76); border-bottom:1px solid var(--line); }
+    .report-nav-inner { max-width:1180px; margin:auto; padding:12px 22px; display:flex; justify-content:space-between; gap:12px; align-items:center; }
+    .report-list-btn { display:inline-flex; align-items:center; padding:10px 14px; border-radius:999px; color:#061018; background:linear-gradient(135deg,var(--sun),var(--mint)); text-decoration:none; font-weight:950; }
+    .nav-meta { color:var(--muted); font-size:13px }
+    main { max-width:1180px; margin:auto; padding:26px 22px 86px; }
+    .infographic-spotlight { width:100%; margin:16px 0 28px; padding:12px; border-radius:34px; background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)); border:1px solid var(--line); box-shadow:0 28px 90px rgba(0,0,0,.42); }
+    .infographic-spotlight img { display:block; width:100%; max-height:none; object-fit:contain; border-radius:24px; }
+    .hero { display:grid; grid-template-columns:1.08fr .92fr; gap:22px; align-items:stretch; margin-top:22px; }
+    .panel { background:linear-gradient(180deg,rgba(255,255,255,.095),rgba(255,255,255,.04)); border:1px solid var(--line); border-radius:32px; padding:28px; box-shadow:0 20px 70px rgba(0,0,0,.28); }
+    h1 { margin:0; font-size:clamp(42px,7vw,78px); line-height:.95; letter-spacing:-.06em; }
+    h2 { margin:0 0 16px; font-size:clamp(28px,4vw,46px); line-height:1; letter-spacing:-.045em; }
+    h3 { margin:0 0 8px; font-size:20px }
+    p { color:#dbe8f5; line-height:1.72; margin:0 }
+    code { color:#dff7ff; background:rgba(255,255,255,.09); padding:2px 6px; border-radius:8px }
+    .lead { font-size:20px; margin-top:18px; max-width:780px }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px }
+    .chip { padding:9px 12px; border-radius:999px; background:rgba(116,198,255,.12); border:1px solid rgba(116,198,255,.3); color:#e3f4ff; font-weight:850; font-size:13px }
+    .metric-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px }
+    .metric { padding:18px; border-radius:22px; background:rgba(0,0,0,.2); border:1px solid var(--line) }
+    .metric b { display:block; font-size:30px; color:var(--sun) }
+    .metric span { color:var(--muted); font-size:13px }
+    .slide { margin-top:24px; min-height:360px; display:grid; grid-template-columns:.9fr 1.1fr; gap:18px; align-items:stretch }
+    .big { font-size:clamp(34px,5vw,58px); line-height:1.02; letter-spacing:-.055em }
+    .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px }
+    .card { border:1px solid var(--line); background:rgba(255,255,255,.055); border-radius:26px; padding:22px }
+    .card strong { color:#fff; font-size:18px }
+    .card p { margin-top:8px; color:var(--muted); font-size:15px }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px }
+    .step { min-height:150px; border-radius:26px; padding:18px; background:linear-gradient(180deg,rgba(255,215,111,.15),rgba(116,198,255,.07)); border:1px solid rgba(255,215,111,.3); }
+    .step em { display:inline-flex; width:34px; height:34px; border-radius:50%; justify-content:center; align-items:center; color:#061018; background:var(--mint); font-style:normal; font-weight:950; margin-bottom:14px }
+    .verdict { display:grid; grid-template-columns:repeat(3,1fr); gap:14px }
+    .ok { border-color:rgba(100,230,189,.38) } .warn { border-color:rgba(255,215,111,.38) } .risk { border-color:rgba(255,105,173,.42) }
+    .footer { margin-top:28px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:18px }
+    a { color:#b9eaff }
+    @media(max-width:900px) { .hero,.slide { grid-template-columns:1fr } .cards,.flow,.verdict,.metric-grid { grid-template-columns:1fr } h1 { font-size:44px } }
+  </style>
+</head>
+<body>
+  <nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><span class="nav-meta">갱신 2026-08-10 12:51 KST</span></div></nav>
+  <main>
+    <section class="infographic-spotlight"><img src="../assets/ryancampbell-kart-royale-infographic.png" alt="ryancampbell/kart-royale 한국어 인포그래픽" /></section>
+
+    <section class="hero">
+      <div class="panel">
+        <h1>ryancampbell/kart-royale<br/>한눈에 보기</h1>
+        <p class="lead">브라우저에서 돌아가는 카트 레이싱 게임을 메시, 텍스처, 사운드까지 전부 코드로 생성해 만든 실험형 웹게임 저장소야.</p>
+        <div class="chips"><span class="chip">TypeScript</span><span class="chip">WebGL</span><span class="chip">procedural assets</span><span class="chip">AI agent build</span><span class="chip">MIT</span></div>
+      </div>
+      <div class="panel metric-grid">
+        <div class="metric"><b>44</b><span>stars</span></div>
+        <div class="metric"><b>13</b><span>forks</span></div>
+        <div class="metric"><b>0</b><span>런타임 아트 에셋</span></div>
+        <div class="metric"><b>13</b><span>README 기준 테스트 하네스</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">게임보다 루프가 더 재밌어</h2><p>겉으로는 카트 게임 데모지만, 핵심은 에이전트가 만든 결과물을 화면과 플레이 하네스로 계속 비판하고 고치는 측정 루프야.</p></div>
+      <div class="cards">
+        <div class="card"><strong>아트 없이 화면 구성</strong><p>트랙, 카트, 텍스처, 이펙트, 오디오를 로드 시점에 코드로 생성함.</p></div>
+        <div class="card"><strong>명확한 아트 바</strong><p><code>ART_DIRECTION.md</code>가 조명, 팔레트, 재질, 리뷰 점수 기준을 고정함.</p></div>
+        <div class="card"><strong>플레이 감각 측정</strong><p>드리프트가 실제로 빠른지, 카메라가 멀미나는지, 터치가 먹는지 하네스로 봄.</p></div>
+        <div class="card"><strong>브라우저 실전 이슈</strong><p>검은 프레임, GL 컨텍스트 손실, 모바일 메모리, 셰이더 히치까지 다룸.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">흐름은 이렇게 봐</h2><p>코드 규칙이 게임 자산을 만들고, 실제 브라우저 화면과 플레이 기록이 다시 개선 지시로 돌아와.</p></div>
+      <div class="flow">
+        <div class="step"><em>1</em><h3>규칙</h3><p>트랙, 물리, 재질, 오디오, UI 기준을 코드와 문서에 둠.</p></div>
+        <div class="step"><em>2</em><h3>생성</h3><p>메시·텍스처·사운드를 런타임에 절차적으로 만듦.</p></div>
+        <div class="step"><em>3</em><h3>실행</h3><p>Vite 기반 브라우저 게임으로 플레이하고 녹화함.</p></div>
+        <div class="step"><em>4</em><h3>측정</h3><p>샷·FPS·드리프트·터치·모바일 하네스로 회귀를 잡음.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">도입 판단</h2><p>완성 게임 엔진이라기보다 웹게임 제작, 절차 생성, 에이전트 개발 루프를 배울 샘플로 보는 게 맞아.</p></div>
+      <div class="verdict">
+        <div class="card ok"><strong>바로 볼 만함</strong><p>Three.js/WebGL 게임, 절차 생성 아트, AI 에이전트 오케스트레이션 사례가 필요한 사람.</p></div>
+        <div class="card warn"><strong>먼저 확인</strong><p><code>npm install</code>, <code>npm run build</code>, 실제 브라우저 플레이가 자기 환경에서 되는지 봐야 함.</p></div>
+        <div class="card risk"><strong>주의점</strong><p>스크린샷 비평은 플레이 버그를 못 잡는다고 README가 직접 말함. 사람 플레이와 하네스가 같이 필요함.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="panel"><h2 class="big">기술 신호</h2><p>코드는 TypeScript 중심이고, <code>src/</code>는 렌더·월드·카트·게임·FX·UI·오디오로 쪼개져 있어.</p></div>
+      <div class="cards">
+        <div class="card"><strong>규모</strong><p>README는 약 60,500라인/49개 소스 파일을 언급하고, pygount 기준 코드 라인은 약 38k로 잡힘.</p></div>
+        <div class="card"><strong>의존성</strong><p>핵심 런타임은 three, postprocessing, n8ao, simplex-noise 조합.</p></div>
+        <div class="card"><strong>점수 감각</strong><p>README 기준 전체 시각 점수는 62/100, 드리프트 감각은 74/100으로 솔직히 공개함.</p></div>
+        <div class="card"><strong>라이선스</strong><p>GitHub 메타데이터는 MIT로 잡히지만 package.json에는 ISC가 남아 있어 재사용 전 LICENSE 파일 기준 확인이 좋아.</p></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>짧은 결론</h2>
+      <p>이 저장소는 “브라우저 카트 게임”을 보는 것도 좋지만, 더 중요한 건 에이전트가 만든 결과를 실제 픽셀과 플레이 하네스로 계속 검증하는 방식이야. 웹게임이나 절차 생성 프로젝트를 만들 때 측정 루프 예제로 꽤 쓸 만해.</p>
+      <p class="footer">출처: <a href="https://github.com/ryancampbell/kart-royale">https://github.com/ryancampbell/kart-royale</a> · 플레이: <a href="https://racing.ryancampbell.com">https://racing.ryancampbell.com</a> · 메타데이터 갱신 2026-08-10 12:51 KST</p>
+    </section>
+  </main>
+</body>
+</html>
