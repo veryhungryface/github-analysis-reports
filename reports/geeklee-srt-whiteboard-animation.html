@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="geeklee/srt-whiteboard-animation 저장소 한국어 인포그래픽 분석 보고서" />
+<title>geeklee/srt-whiteboard-animation 분석 보고서</title>
+<style>
+:root {
+  --bg:#f7efe0; --ink:#231f20; --muted:#6f6254; --paper:#fffaf0; --line:#2b2622;
+  --red:#e95f45; --orange:#f59e32; --blue:#3f78bf; --green:#3d9b72;
+  --shadow: 0 22px 60px rgba(74,45,20,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Pretendard,Apple SD Gothic Neo,Inter,system-ui,sans-serif;background:radial-gradient(circle at top left,#fff6e4 0,#f6ead5 42%,#ead9bd 100%);color:var(--ink);line-height:1.55}
+a{color:inherit}
+.report-nav{position:sticky;top:0;z-index:20;background:rgba(247,239,224,.88);backdrop-filter:blur(14px);border-bottom:2px solid rgba(43,38,34,.12)}
+.report-nav-inner{max-width:1160px;margin:auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.report-list-btn{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--line);border-radius:999px;padding:10px 16px;text-decoration:none;background:#fff8ea;font-weight:900;box-shadow:4px 4px 0 rgba(35,31,32,.12)}
+.updated{font-size:13px;color:var(--muted);font-weight:800}
+.wrap{max-width:1160px;margin:auto;padding:28px 20px 84px}
+.infographic-spotlight{border:3px solid var(--line);border-radius:34px;padding:16px;background:#fff7e8;box-shadow:var(--shadow);margin:18px 0 28px}
+.infographic-spotlight img{display:block;width:100%;max-height:none;object-fit:contain;border-radius:22px;background:#f5ebd7}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;margin:22px 0}
+.panel{background:rgba(255,250,240,.82);border:2px solid rgba(43,38,34,.18);border-radius:30px;padding:26px;box-shadow:var(--shadow)}
+.eyebrow{display:inline-flex;border:2px solid var(--line);border-radius:999px;padding:7px 12px;background:#fff;box-shadow:3px 3px 0 rgba(35,31,32,.12);font-weight:900;font-size:13px;margin-bottom:14px}
+h1{font-size:clamp(38px,6vw,78px);letter-spacing:-.07em;line-height:.95;margin:0 0 16px}
+.lead{font-size:clamp(18px,2.4vw,25px);font-weight:800;color:#342b25;margin:0}
+.verdict{display:grid;gap:12px}
+.pill{border:2px solid var(--line);border-radius:22px;padding:16px;background:#fffdf7}
+.pill b{display:block;font-size:18px;margin-bottom:4px}
+.pill span{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+.card{background:var(--paper);border:2px solid rgba(43,38,34,.2);border-radius:26px;padding:22px;box-shadow:var(--shadow)}
+.card strong{display:block;font-size:23px;letter-spacing:-.04em;margin-bottom:8px}
+.card p{margin:0;color:var(--muted)}
+.num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;color:white;font-weight:950;margin-bottom:12px;background:var(--red)}
+.card:nth-child(2) .num,.card:nth-child(5) .num{background:var(--orange)}
+.card:nth-child(3) .num,.card:nth-child(6) .num{background:var(--blue)}
+.slide{margin-top:18px;padding:34px;border-radius:34px;background:rgba(255,250,240,.72);border:2px solid rgba(43,38,34,.16);box-shadow:var(--shadow)}
+.slide h2{font-size:clamp(28px,4vw,48px);line-height:1.02;letter-spacing:-.055em;margin:0 0 14px}
+.slide p{font-size:18px;color:var(--muted);margin:0 0 18px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{position:relative;border:2px dashed rgba(43,38,34,.35);border-radius:22px;padding:18px;background:#fffdf7;min-height:132px}
+.step b{display:block;font-size:20px;margin-bottom:8px}
+.step small{color:var(--muted);font-weight:800}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.metric{text-align:center;border-radius:24px;padding:20px;background:#241f1b;color:#fff}
+.metric b{display:block;font-size:30px}
+.metric span{font-size:13px;color:#e9d8c4;font-weight:800}
+.warn{border-left:8px solid var(--orange);background:#fff8e5}
+.ok{border-left:8px solid var(--green)}
+.bad{border-left:8px solid var(--red)}
+.footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center}
+@media(max-width:900px){.hero,.grid,.flow,.metrics{grid-template-columns:1fr}h1{font-size:44px}.wrap{padding:18px 14px 56px}}
+</style>
+</head>
+<body>
+<nav class="report-nav"><div class="report-nav-inner"><a class="report-list-btn" href="../index.html">← 보고서 목록</a><span class="updated">업데이트 2026-08-14 11:30 KST</span></div></nav>
+<main class="wrap">
+  <section class="infographic-spotlight" aria-label="srt-whiteboard-animation 인포그래픽"><img src="../assets/geeklee-srt-whiteboard-animation-infographic.png" alt="SRT 자막을 장면 분할, 영역 표시, 손그림 MP4로 바꾸는 흐름 인포그래픽" /></section>
+  <section class="hero">
+    <div class="panel"><span class="eyebrow">geeklee/srt-whiteboard-animation</span><h1>SRT 자막을<br/>백판 손그림 영상으로</h1><p class="lead">자막을 기준으로 장면을 나누고, 각 요소가 순서대로 그려지는 따뜻한 종이 질감의 MP4를 만드는 Python 기반 AI skill 저장소입니다.</p></div>
+    <div class="panel verdict">
+      <div class="pill"><b>누구에게 좋나</b><span>강의·스토리·짧은 교육 영상 스크립트를 손그림 스타일로 바꾸고 싶은 제작자</span></div>
+      <div class="pill"><b>한 줄 판단</b><span>완성 앱보다는 “SRT → 분할 → 표시 → 렌더” 제작 파이프라인 예제로 보는 게 맞습니다.</span></div>
+      <div class="pill"><b>먼저 볼 것</b><span>자기 SRT와 한 장면 이미지로 annotation 품질과 렌더 시간을 먼저 확인해야 합니다.</span></div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <article class="card"><span class="num">1</span><strong>자막 중심 분해</strong><p>SRT를 읽어 25–35초 단위 장면으로 나누고, 각 장면의 핵심 의미를 영상 제작 단위로 바꿉니다.</p></article>
+    <article class="card"><span class="num">2</span><strong>영역별 등장 순서</strong><p>annotation.json으로 사물·인물·배경 영역을 지정하고 sequence, startMs, protectedRegions로 노출 순서를 관리합니다.</p></article>
+    <article class="card"><span class="num">3</span><strong>연속 필기 렌더</strong><p>사각형 와이프가 아니라 grid/skeleton 경로를 따라 ink → color 단계로 손글씨처럼 그려지는 MP4를 만듭니다.</p></article>
+  </section>
+
+  <section class="slide"><h2>입력에서 결과까지</h2><p>이 저장소의 핵심은 “그림 생성기” 하나가 아니라 확인 단계를 가진 제작 흐름입니다.</p><div class="flow"><div class="step"><b>SRT 자막</b><small>대본과 시간축</small></div><div class="step"><b>분할·전략</b><small>장면별 핵심 의미</small></div><div class="step"><b>영역 표시</b><small>좌표·순서·보호 구역</small></div><div class="step"><b>MP4 렌더</b><small>손그림 진행 영상</small></div></div></section>
+
+  <section class="slide"><h2>레포 성숙도 신호</h2><p>2026-07 공개된 작은 프로젝트지만 README, SKILL 문서, 예제 이미지/GIF/MP4, 실제 CLI 스크립트를 함께 제공합니다.</p><div class="metrics"><div class="metric"><b>397</b><span>Stars</span></div><div class="metric"><b>67</b><span>Forks</span></div><div class="metric"><b>19</b><span>추적 파일</span></div><div class="metric"><b>MIT</b><span>License</span></div></div></section>
+
+  <section class="grid">
+    <article class="card ok"><strong>실행 확인됨</strong><p>prepare_env로 venv와 opencv/numpy/av/Pillow 설치가 진행됐고, sample SRT 파싱 및 예제 장면의 짧은 MP4 렌더가 성공했습니다.</p></article>
+    <article class="card warn"><strong>주의할 점</strong><p>render_annotation_preview.py는 Windows 폰트 경로(C:/Windows/Fonts/msyh.ttc)가 하드코딩되어 Linux에서 바로 실패했습니다.</p></article>
+    <article class="card"><strong>도입 추천</strong><p>수업용 짧은 설명 영상이나 스토리형 콘텐츠 자동 제작 실험에는 좋지만, 운영 자동화 전에는 폰트·브라우저 미리보기·샘플별 annotation 품질을 먼저 검증해야 합니다.</p></article>
+  </section>
+
+  <section class="slide"><h2>아찌가 바로 써본다면</h2><p>가장 현실적인 첫 실험은 30초짜리 SRT 하나와 단순 선화 1장을 준비해 parse_srt → annotation 작성 → preview 조정 → render_stream_whiteboard 순서로 한 장면만 뽑아보는 것입니다. 여러 장면 합성은 한 장면 품질이 안정된 뒤에 붙이는 편이 안전합니다.</p></section>
+
+  <p class="footer">Source: <a href="https://github.com/geeklee/srt-whiteboard-animation">https://github.com/geeklee/srt-whiteboard-animation</a></p>
+</main>
+</body>
+</html>

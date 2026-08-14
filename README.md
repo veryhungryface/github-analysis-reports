@@ -32,3 +32,4 @@
 - [yelixir-dev-commandcode-bridge](reports/yelixir-dev-commandcode-bridge.html)
 - [Aerolab/silicon-baires](reports/Aerolab-silicon-baires.html) — 코드 기반 Blender 도시를 WebGL·영상으로 이어주는 저장소
 - [ryancampbell/kart-royale](reports/ryancampbell-kart-royale.html) — 아트 에셋 없이 코드로 생성되는 브라우저 카트 레이싱 게임
+- [geeklee/srt-whiteboard-animation](reports/geeklee-srt-whiteboard-animation.html) — SRT 자막을 손그림 백판 애니메이션 MP4로 바꾸는 제작 파이프라인
