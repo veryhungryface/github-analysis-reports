@@ -34,3 +34,4 @@
 - [ryancampbell/kart-royale](reports/ryancampbell-kart-royale.html) — 아트 에셋 없이 코드로 생성되는 브라우저 카트 레이싱 게임
 - [geeklee/srt-whiteboard-animation](reports/geeklee-srt-whiteboard-animation.html) — SRT 자막을 손그림 백판 애니메이션 MP4로 바꾸는 제작 파이프라인
 - [lidge-jun/ima2-gen](reports/lidge-jun-ima2-gen.html) — 로컬 우선 이미지·비디오 생성 스튜디오와 에이전트용 CLI/runtime
+- [HKUDS/CLI-Anything](reports/HKUDS-CLI-Anything.html) — 에이전트용 소프트웨어 CLI 허브와 workflow matrix
